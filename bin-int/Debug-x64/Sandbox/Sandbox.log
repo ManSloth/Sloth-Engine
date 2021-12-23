@@ -1,3 +1,2 @@
-﻿  Applilcation.cpp
-D:\GameDev\Sloth_2021\Sloth\Sandbox\src\Applilcation.cpp(7,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+﻿  SandboxApp.cpp
   Sandbox.vcxproj -> D:\GameDev\Sloth_2021\Sloth\bin\Debug-x64\Sandbox\Sandbox.exe
