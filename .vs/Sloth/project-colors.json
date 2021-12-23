@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "3baa24eb-bb03-474a-930e-a38d808e9695": {
+      "ProjectGuid": "3baa24eb-bb03-474a-930e-a38d808e9695",
+      "DisplayName": "Sloth",
+      "ColorIndex": 0
+    },
+    "46e33743-b8be-4f73-95e8-5c35c7c3704a": {
+      "ProjectGuid": "46e33743-b8be-4f73-95e8-5c35c7c3704a",
+      "DisplayName": "Sandbox",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
