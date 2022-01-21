@@ -1,0 +1,3 @@
+[submodule "Sloth/vendor/spdlog"]
+	path = Sloth/vendor/spdlog
+	url = https://github.com/gabime/spdlog
