@@ -4,6 +4,9 @@
     <Filter Include="Sloth">
       <UniqueIdentifier>{6F121A0E-DB26-42BF-A4A8-E51E107C3EF0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sloth\Events">
+      <UniqueIdentifier>{73CBD2C9-5F2E-626E-08B4-9A24F4F52DF1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Sloth.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Sloth\EntryPoint.h">
       <Filter>Sloth</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Events\ApplicationEvent.h">
+      <Filter>Sloth\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Events\Event.h">
+      <Filter>Sloth\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Events\KeyEvent.h">
+      <Filter>Sloth\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Events\MouseEvent.h">
+      <Filter>Sloth\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Log.h">
       <Filter>Sloth</Filter>

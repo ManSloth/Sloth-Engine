@@ -18,4 +18,5 @@ public:
 Sloth::Application* Sloth::CreateApplication()
 {
 	return new Sandbox();
+
 }
