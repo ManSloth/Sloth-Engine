@@ -18,6 +18,9 @@ project "Sloth"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "slthpch.h"
+	pchsource "Sloth/src/slthpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

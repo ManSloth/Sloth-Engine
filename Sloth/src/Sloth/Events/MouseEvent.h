@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Sloth {
 
 	class SLOTH_API MouseMovedEvent : public Event

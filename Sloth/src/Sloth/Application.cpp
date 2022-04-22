@@ -1,3 +1,4 @@
+#include "slthpch.h"
 #include "Application.h"
 
 #include "Sloth/Events/ApplicationEvent.h"

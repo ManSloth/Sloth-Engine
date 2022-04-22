@@ -1,9 +1,8 @@
 #pragma once
 
+#include "slthpch.h"
 #include "Sloth/Core.h"
 
-#include <string>
-#include <functional>
 
 namespace Sloth {
 
