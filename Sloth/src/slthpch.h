@@ -12,6 +12,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Sloth/Log.h"
 
 #ifdef SLTH_PLATFORM_WINDOWS
 	#include <Windows.h>

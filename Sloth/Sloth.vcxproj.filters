@@ -35,6 +35,8 @@
       <Filter>Sloth</Filter>
     </ClInclude>
     <ClInclude Include="src\slthpch.h" />
+    <ClInclude Include="src\Sloth\Window.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sloth\Application.cpp">
@@ -44,5 +46,6 @@
       <Filter>Sloth</Filter>
     </ClCompile>
     <ClCompile Include="src\slthpch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>
