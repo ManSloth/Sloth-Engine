@@ -4,3 +4,6 @@
 [submodule "Sloth/vendor/GLFW"]
 	path = Sloth/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
+[submodule "Sloth/vendor/imgui"]
+	path = Sloth/vendor/imgui
+	url = https://github.com/TheCherno/imgui

@@ -11,7 +11,7 @@ public:
 
 	void OnUpdate() override
 	{
-		SLTH_INFO("ExampleLayer::Update");
+		//SLTH_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(Sloth::Event& event) override
@@ -26,6 +26,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+		PushLayer(new Sloth::ImGuiLayer());
 	}
 
 	~Sandbox()
