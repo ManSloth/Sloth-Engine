@@ -2,6 +2,11 @@
 
 #include "Sloth/Layer.h"
 
+#include "Sloth/Events/ApplicationEvent.h"
+#include "Sloth/Events/KeyEvent.h"
+#include "Sloth/Events/MouseEvent.h"
+
+
 namespace Sloth {
 
 	class SLOTH_API ImGuiLayer : public Layer
@@ -14,6 +19,15 @@ namespace Sloth {
 		void OnDetach();
 		void OnUpdate();
 		void OnEvent(Event& event);
+	private:
+		bool OnMouseButtonPressedEvent(MouseButtonPressedEvent& e);
+		bool OnMouseButtonReleasedEvent(MouseButtonReleasedEvent& e);
+		bool OnMouseMovedEvent(MouseMovedEvent& e);
+		bool OnMouseScrolledEvent(MouseScrolledEvent& e);
+		bool OnKeyPressedEvent(KeyPressedEvent& e);
+		bool OnKeyReleasedEvent(KeyReleasedEvent& e);
+		bool OnKeyTypedEvent(KeyTypedEvent& e);
+		bool OnWindowResizeEvent(WindowResizeEvent& e);
 	private:
 		float m_Time = 0.0f;
 	};
