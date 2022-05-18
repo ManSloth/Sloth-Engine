@@ -154,6 +154,7 @@
   <ItemGroup>
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Sloth.h" />
     <ClInclude Include="src\Sloth\Application.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="src\Sloth\Events\KeyEvent.h" />
     <ClInclude Include="src\Sloth\Events\MouseEvent.h" />
     <ClInclude Include="src\Sloth\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Sloth\Input.h" />
     <ClInclude Include="src\Sloth\Layer.h" />
     <ClInclude Include="src\Sloth\LayerStack.h" />
     <ClInclude Include="src\Sloth\Log.h" />
@@ -172,6 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Sloth\Application.cpp" />
     <ClCompile Include="src\Sloth\ImGui\ImGuiLayer.cpp" />

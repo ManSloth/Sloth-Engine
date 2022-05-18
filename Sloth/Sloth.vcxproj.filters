@@ -27,7 +27,6 @@
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sloth.h" />
     <ClInclude Include="src\Sloth\Application.h">
       <Filter>Sloth</Filter>
     </ClInclude>
@@ -66,6 +65,11 @@
     </ClInclude>
     <ClInclude Include="src\slthpch.h" />
     <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="src\Sloth.h">
+      <Filter>Sloth</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Input.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
@@ -90,5 +94,6 @@
       <Filter>Sloth</Filter>
     </ClCompile>
     <ClCompile Include="src\slthpch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>
