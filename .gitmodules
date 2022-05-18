@@ -7,3 +7,6 @@
 [submodule "Sloth/vendor/imgui"]
 	path = Sloth/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "Sloth/vendor/glm"]
+	path = Sloth/vendor/glm
+	url = https://github.com/g-truc/glm
