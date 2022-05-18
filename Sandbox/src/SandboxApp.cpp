@@ -12,11 +12,20 @@ public:
 	void OnUpdate() override
 	{
 		//SLTH_INFO("ExampleLayer::Update");
+
+		if (Sloth::Input::IsKeyPressed(SLTH_KEY_TAB))  // Poll tab key
+			SLTH_TRACE("Tab key is pressed!");
 	}
 
 	void OnEvent(Sloth::Event& event) override
 	{
-		SLTH_TRACE("{0}", event);
+		if (event.GetEventType() == Sloth::EventType::KeyPressed)
+		{
+			Sloth::KeyPressedEvent& e = (Sloth::KeyPressedEvent&)event; // print key that is pressed
+			SLTH_TRACE("{0}", (char)e.GetKeyCode());
+		}
+
+		//SLTH_TRACE("{0}", event);
 	}
 };
 
