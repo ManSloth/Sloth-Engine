@@ -7,6 +7,8 @@
 #include "Sloth/Events/Event.h"
 #include "Sloth/Events/ApplicationEvent.h"
 
+#include "Sloth/ImGui/ImGuiLayer.h"
+
 namespace Sloth {
 
 	class SLOTH_API Application
@@ -29,6 +31,7 @@ namespace Sloth {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 	private:
