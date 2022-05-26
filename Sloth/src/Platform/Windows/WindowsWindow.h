@@ -1,8 +1,10 @@
 #pragma once
 
 #include "Sloth/Window.h"
+#include "Sloth/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
+
 
 namespace Sloth {
 
@@ -28,6 +30,7 @@ namespace Sloth {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{
