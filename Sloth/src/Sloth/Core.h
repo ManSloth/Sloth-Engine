@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef SLTH_PLATFORM_WINDOWS
+#if SLTH_DYNAMIC_LINK
 	#ifdef SLTH_BUILD_DLL
 		#define SLOTH_API __declspec(dllexport)
 	#else
 		#define SLOTH_API __declspec(dllimport)
 	#endif
+#else
+	#define SLOTH_API
+#endif
 #else
 	#error Sloth only support Windows!
 #endif

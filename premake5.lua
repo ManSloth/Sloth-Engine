@@ -1,5 +1,6 @@
 workspace "Sloth"
 	architecture "x64"
+	startproject "Sandbox"
 
 	configurations
 	{
@@ -23,8 +24,10 @@ include "Sloth/vendor/imgui"
 
 project "Sloth"
 	location "Sloth"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -38,6 +41,11 @@ project "Sloth"
 		"%{prj.name}/src/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
+	}
+
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
 	}
 
 	includedirs
@@ -59,8 +67,6 @@ project "Sloth"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -69,31 +75,28 @@ project "Sloth"
 			"SLTH_BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
 		}
-
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-		}
 	
 		filter "configurations:Debug"
 			defines "SLTH_DEBUG"
 			buildoptions "/MDd"
-			symbols "On"
+			symbols "on"
 
 		filter "configurations:Release"
 			defines "SLTH_Release"
 			buildoptions "/MD"
-			optimize "On"
+			optimize "on"
 
 		filter "configurations:Dist"
 			defines "SLTH_DIST"
 			buildoptions "/MD"
-			optimize "On"
+			optimize "on"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -117,7 +120,6 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		staticruntime "On"
 		systemversion "latest"
 
@@ -129,14 +131,14 @@ project "Sandbox"
 		filter "configurations:Debug"
 			defines "SLTH_DEBUG"
 			buildoptions "/MDd"
-			symbols "On"
+			symbols "on"
 
 		filter "configurations:Release"
 			defines "SLTH_Release"
 			buildoptions "/MD"
-			optimize "On"
+			optimize "on"
 
 		filter "configurations:Dist"
 			defines "SLTH_DIST"
 			buildoptions "/MD"
-			optimize "On"
+			optimize "on"
