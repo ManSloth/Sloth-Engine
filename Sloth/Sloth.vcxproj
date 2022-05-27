@@ -162,6 +162,7 @@
     <ClInclude Include="src\Sloth\Log.h" />
     <ClInclude Include="src\Sloth\MouseButtonCodes.h" />
     <ClInclude Include="src\Sloth\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Sloth\Renderer\Shader.h" />
     <ClInclude Include="src\Sloth\Window.h" />
     <ClInclude Include="src\slthpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -590,6 +591,7 @@
     <ClCompile Include="src\Sloth\Layer.cpp" />
     <ClCompile Include="src\Sloth\LayerStack.cpp" />
     <ClCompile Include="src\Sloth\Log.cpp" />
+    <ClCompile Include="src\Sloth\Renderer\Shader.cpp" />
     <ClCompile Include="src\slthpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

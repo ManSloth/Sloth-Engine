@@ -9,6 +9,8 @@
 
 #include "Sloth/ImGui/ImGuiLayer.h"
 
+#include "Sloth/Renderer/Shader.h"
+
 namespace Sloth {
 
 	class SLOTH_API Application
@@ -36,6 +38,7 @@ namespace Sloth {
 		LayerStack m_LayerStack;
 
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 	private:
 		static Application* s_Instance;
 	};
