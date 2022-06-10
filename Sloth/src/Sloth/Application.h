@@ -13,6 +13,8 @@
 #include "Sloth/Renderer/Buffer.h"
 #include "Sloth/Renderer/VertexArray.h"
 
+#include "Sloth/Renderer/OrthographicCamera.h"
+
 namespace Sloth {
 
 	class SLOTH_API Application
@@ -44,6 +46,8 @@ namespace Sloth {
 
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};
