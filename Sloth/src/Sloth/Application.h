@@ -7,13 +7,15 @@
 #include "Sloth/Events/Event.h"
 #include "Sloth/Events/ApplicationEvent.h"
 
+#include "Sloth/Core/Timestep.h"
+
 #include "Sloth/ImGui/ImGuiLayer.h"
 
-#include "Sloth/Renderer/Shader.h"
-#include "Sloth/Renderer/Buffer.h"
-#include "Sloth/Renderer/VertexArray.h"
+//#include "Sloth/Renderer/Shader.h"
+//#include "Sloth/Renderer/Buffer.h"
+//#include "Sloth/Renderer/VertexArray.h"
 
-#include "Sloth/Renderer/OrthographicCamera.h"
+//#include "Sloth/Renderer/OrthographicCamera.h"
 
 namespace Sloth {
 
@@ -35,12 +37,12 @@ namespace Sloth {
 		inline static Application& Get() { return *s_Instance; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
-
+	private:
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
+		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* s_Instance;
 	};

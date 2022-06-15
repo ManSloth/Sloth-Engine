@@ -7,6 +7,8 @@
 #include "Sloth/Layer.h"
 #include "Sloth/Log.h"
 
+#include "Sloth/Core/Timestep.h"
+
 #include "Sloth/Input.h"
 #include "Sloth/KeyCodes.h"
 #include "Sloth/MouseButtonCodes.h"

@@ -152,6 +152,7 @@
     <ClInclude Include="src\Sloth.h" />
     <ClInclude Include="src\Sloth\Application.h" />
     <ClInclude Include="src\Sloth\Core.h" />
+    <ClInclude Include="src\Sloth\Core\Timestep.h" />
     <ClInclude Include="src\Sloth\EntryPoint.h" />
     <ClInclude Include="src\Sloth\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Sloth\Events\Event.h" />
