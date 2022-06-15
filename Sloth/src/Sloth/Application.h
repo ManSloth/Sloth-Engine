@@ -11,12 +11,6 @@
 
 #include "Sloth/ImGui/ImGuiLayer.h"
 
-//#include "Sloth/Renderer/Shader.h"
-//#include "Sloth/Renderer/Buffer.h"
-//#include "Sloth/Renderer/VertexArray.h"
-
-//#include "Sloth/Renderer/OrthographicCamera.h"
-
 namespace Sloth {
 
 	class SLOTH_API Application
