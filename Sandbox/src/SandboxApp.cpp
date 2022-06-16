@@ -22,7 +22,7 @@ public:
 			 0.0f,  0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f
 		};
 
-		std::shared_ptr<Sloth::VertexBuffer> vertexBuffer;
+		Sloth::Ref<Sloth::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(Sloth::VertexBuffer::Create(vertices, sizeof(vertices)));
 
 		Sloth::BufferLayout layout = {
@@ -34,7 +34,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<Sloth::IndexBuffer> indexBuffer;
+		Sloth::Ref<Sloth::IndexBuffer> indexBuffer;
 		indexBuffer.reset(Sloth::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -47,7 +47,7 @@ public:
 			-0.5f,  0.5f, 0.0f
 		};
 
-		std::shared_ptr<Sloth::VertexBuffer> squareVB;
+		Sloth::Ref<Sloth::VertexBuffer> squareVB;
 		squareVB.reset(Sloth::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 		squareVB->SetLayout({
 			{ Sloth::ShaderDataType::Float3, "a_Position" }
@@ -55,7 +55,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<Sloth::IndexBuffer> squareIB;
+		Sloth::Ref<Sloth::IndexBuffer> squareIB;
 		squareIB.reset(Sloth::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -195,11 +195,11 @@ public:
 	}
 
 private:
-	std::shared_ptr<Sloth::Shader> m_Shader;
-	std::shared_ptr<Sloth::VertexArray> m_VertexArray;
+	Sloth::Ref<Sloth::Shader> m_Shader;
+	Sloth::Ref<Sloth::VertexArray> m_VertexArray;
 
-	std::shared_ptr<Sloth::Shader> m_FlatColorShader;
-	std::shared_ptr<Sloth::VertexArray> m_SquareVA;
+	Sloth::Ref<Sloth::Shader> m_FlatColorShader;
+	Sloth::Ref<Sloth::VertexArray> m_SquareVA;
 
 	Sloth::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #ifdef SLTH_PLATFORM_WINDOWS
 #if SLTH_DYNAMIC_LINK
 	#ifdef SLTH_BUILD_DLL
@@ -25,3 +27,13 @@
 #define BIT(x) (1 << x)
 
 #define SLTH_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+
+namespace Sloth {
+
+	template<typename T>
+	using Scope = std::unique_ptr<T>;
+
+	template<typename T>
+	using Ref = std::shared_ptr<T>;
+
+}
