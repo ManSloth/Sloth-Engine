@@ -19,4 +19,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\textures\FallenTree.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\Grass.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\Shield.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\grass2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

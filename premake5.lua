@@ -17,10 +17,13 @@ IncludeDir["GLFW"] = "Sloth/vendor/GLFW/include"
 IncludeDir["Glad"] = "Sloth/vendor/Glad/include"
 IncludeDir["ImGui"] = "Sloth/vendor/imgui"
 IncludeDir["glm"] = "Sloth/vendor/glm"
+IncludeDir["stb_image"] = "Sloth/vendor/stb_image"
 
 include "Sloth/vendor/GLFW"
 include "Sloth/vendor/Glad"
 include "Sloth/vendor/imgui"
+
+group ""
 
 project "Sloth"
 	location "Sloth"
@@ -39,6 +42,8 @@ project "Sloth"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
@@ -55,7 +60,8 @@ project "Sloth"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links
