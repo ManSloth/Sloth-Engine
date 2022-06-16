@@ -7,17 +7,26 @@
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Platform\OpenGL">
+      <UniqueIdentifier>{35A49437-A105-7245-2A73-B8F796D3A804}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform\Windows">
       <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Sloth">
       <UniqueIdentifier>{C620D7B3-328B-8B2A-7BC9-3CD0E772697F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Sloth\Core">
+      <UniqueIdentifier>{DEB0A128-CA7E-952E-B312-06559F7F7193}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Sloth\Events">
       <UniqueIdentifier>{EA71F3DC-D66A-122F-FF9C-F7B3EBF4F13A}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Sloth\ImGui">
       <UniqueIdentifier>{7092423D-DC1D-B001-E52E-33F651390C02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Sloth\Renderer">
+      <UniqueIdentifier>{2CA392DE-1887-5334-81E7-4D876DEA3DB6}</UniqueIdentifier>
     </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
@@ -42,6 +51,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>src\Platform\Windows</Filter>
     </ClInclude>
@@ -56,6 +80,9 @@
     </ClInclude>
     <ClInclude Include="src\Sloth\Core.h">
       <Filter>src\Sloth</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Core\Timestep.h">
+      <Filter>src\Sloth\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\EntryPoint.h">
       <Filter>src\Sloth</Filter>
@@ -92,6 +119,30 @@
     </ClInclude>
     <ClInclude Include="src\Sloth\MouseButtonCodes.h">
       <Filter>src\Sloth</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Renderer\Buffer.h">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Renderer\GraphicsContext.h">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Renderer\OrthographicCamera.h">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Renderer\RenderCommand.h">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Renderer\Renderer.h">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Renderer\RendererAPI.h">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Renderer\Shader.h">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Renderer\VertexArray.h">
+      <Filter>src\Sloth\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Window.h">
       <Filter>src\Sloth</Filter>
@@ -1344,21 +1395,23 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sloth\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="src\Sloth\Renderer\Shader.h" />
-    <ClInclude Include="src\Sloth\Renderer\Buffer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
-    <ClInclude Include="src\Sloth\Renderer\Renderer.h" />
-    <ClInclude Include="src\Sloth\Renderer\VertexArray.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="src\Sloth\Renderer\RendererAPI.h" />
-    <ClInclude Include="src\Sloth\Renderer\RenderCommand.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="src\Sloth\Renderer\OrthographicCamera.h" />
-    <ClInclude Include="src\Sloth\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
@@ -1383,19 +1436,29 @@
     <ClCompile Include="src\Sloth\Log.cpp">
       <Filter>src\Sloth</Filter>
     </ClCompile>
+    <ClCompile Include="src\Sloth\Renderer\Buffer.cpp">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Renderer\RenderCommand.cpp">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Renderer\Renderer.cpp">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Renderer\RendererAPI.cpp">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Renderer\Shader.cpp">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Renderer\VertexArray.cpp">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\slthpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="src\Sloth\Renderer\Shader.cpp" />
-    <ClCompile Include="src\Sloth\Renderer\Buffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
-    <ClCompile Include="src\Sloth\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\Sloth\Renderer\VertexArray.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="src\Sloth\Renderer\RendererAPI.cpp" />
-    <ClCompile Include="src\Sloth\Renderer\RenderCommand.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="src\Sloth\Renderer\OrthographicCamera.cpp" />
   </ItemGroup>
 </Project>
