@@ -167,6 +167,7 @@ public:
 		m_TextureShader.reset(Sloth::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
 
 		m_Texture = Sloth::Texture2D::Create("assets/textures/Grass2.png");
+		m_AlphaTexture = Sloth::Texture2D::Create("assets/textures/Grass.png");
 
 		std::dynamic_pointer_cast<Sloth::OpenGLShader>(m_TextureShader)->Bind();
 		std::dynamic_pointer_cast<Sloth::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
@@ -219,6 +220,31 @@ public:
 
 		m_Texture->Bind();
 		Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
+
+		scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.5, 0.25, 1));
+		m_AlphaTexture->Bind();
+		for (int y = 0; y < 20; y++)
+		{
+			for (int x = 0; x < 10; x++)
+			{
+				if (y % 2 == 0)
+				{
+					glm::vec3 pos((x * 0.24f) +0.12f, (y * 0.06f), 0.0f);
+					glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
+					Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, transform);
+				}
+				else
+				{
+					glm::vec3 pos(x * 0.24f, y * 0.06f, 0.0f);
+					glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
+					Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, transform);
+				}
+			}
+		}
+
+		//m_AlphaTexture->Bind();
+		//Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		// Triangle
 		// Sloth::Renderer::Submit(m_Shader, m_VertexArray);
 
@@ -247,6 +273,7 @@ private:
 	Sloth::Ref<Sloth::VertexArray> m_SquareVA;
 
 	Sloth::Ref<Sloth::Texture2D> m_Texture;
+	Sloth::Ref<Sloth::Texture2D> m_AlphaTexture;
 
 	Sloth::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
