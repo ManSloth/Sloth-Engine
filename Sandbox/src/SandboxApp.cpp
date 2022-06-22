@@ -131,40 +131,7 @@ public:
 
 		m_FlatColorShader.reset(Sloth::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
 
-		std::string textureShaderVertexSrc = R"(
-			#version 330 core
-
-			layout(location = 0) in vec3 a_Position;
-			layout(location = 1) in vec2 a_TexCoord;
-
-			uniform mat4 u_ViewProjection;
-			uniform mat4 u_Transform;
-			
-			out vec2 v_TexCoord;
-
-			void main()
-			{
-				v_TexCoord = a_TexCoord;
-				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
-			}
-		)";
-
-		std::string textureShaderFragmentSrc = R"(
-			#version 330 core
-
-			layout(location = 0) out vec4 color;
-
-			in vec2 v_TexCoord;
-
-			uniform sampler2D u_Texture;
-			
-			void main()
-			{
-				color = texture(u_Texture, v_TexCoord);
-			}
-		)";
-
-		m_TextureShader.reset(Sloth::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
+		m_TextureShader.reset(Sloth::Shader::Create("assets/shaders/Texture.glsl"));
 
 		m_Texture = Sloth::Texture2D::Create("assets/textures/Grass2.png");
 		m_AlphaTexture = Sloth::Texture2D::Create("assets/textures/Grass.png");
@@ -208,6 +175,7 @@ public:
 		std::dynamic_pointer_cast<Sloth::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
 
 
+		// Group of blue squares
 		for (int y = 0; y < 20; y++)
 		{
 			for (int x = 0; x < 20; x++)
@@ -218,10 +186,12 @@ public:
 			}
 		}
 
+		// big grass texture
 		m_Texture->Bind();
 		Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 
+		// Small Group of grass tiles
 		scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.5, 0.25, 1));
 		m_AlphaTexture->Bind();
 		for (int y = 0; y < 20; y++)
@@ -246,9 +216,9 @@ public:
 		//m_AlphaTexture->Bind();
 		//Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		// Triangle
-		// Sloth::Renderer::Submit(m_Shader, m_VertexArray);
+		Sloth::Renderer::Submit(m_Shader, m_VertexArray);
 
-		Sloth::Renderer::EndScene();
+		//Sloth::Renderer::EndScene();
 
 		//Renderer::Flush();
 	}
