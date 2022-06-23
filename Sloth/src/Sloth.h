@@ -12,6 +12,7 @@
 #include "Sloth/Input.h"
 #include "Sloth/KeyCodes.h"
 #include "Sloth/MouseButtonCodes.h"
+#include "Sloth/OrthographicCameraController.h"
 
 #include "Sloth/ImGui/ImGuiLayer.h"
 

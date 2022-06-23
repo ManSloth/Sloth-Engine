@@ -13,7 +13,7 @@ class ExampleLayer : public Sloth::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(1.1f, 0.6f, 0.0f)
+		: Layer("Example"), m_CameraController(1280 / 720.0f, true)
 	{
 		m_VertexArray.reset(Sloth::VertexArray::Create());
 
@@ -148,7 +148,8 @@ public:
 		auto end = std::chrono::system_clock::now();
 		for (int i = 0; i < 20 * 10; i++)
 		{
-			int randNum = rand() % (5 + 1 - 1) + 1;
+			// rand() % (max_number + 1 - minimum_number) + minimum_number
+			int randNum = rand() % (36 + 1 - 28) + 28;
 			//int randNum = rand() % 36;
 			map.push_back(randNum);
 		}
@@ -163,32 +164,14 @@ public:
 
 	void OnUpdate(Sloth::Timestep ts) override
 	{
+		// Update
+		m_CameraController.OnUpdate(ts);
 
-		if (Sloth::Input::IsKeyPressed(SLTH_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
-
-		else if (Sloth::Input::IsKeyPressed(SLTH_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraMoveSpeed * ts;
-
-		if (Sloth::Input::IsKeyPressed(SLTH_KEY_UP))
-			m_CameraPosition.y += m_CameraMoveSpeed * ts;
-
-		else if (Sloth::Input::IsKeyPressed(SLTH_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
-
-		if (Sloth::Input::IsKeyPressed(SLTH_KEY_A))
-			m_CameraRotation += m_CameraRotationSpeed * ts;
-		else if (Sloth::Input::IsKeyPressed(SLTH_KEY_D))
-			m_CameraRotation -= m_CameraRotationSpeed * ts;
-
-
+		// Render
 		Sloth::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Sloth::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
-
-		Sloth::Renderer::BeginScene(m_Camera);
+		Sloth::Renderer::BeginScene(m_CameraController.GetCamera());
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
@@ -269,9 +252,9 @@ public:
 		ImGui::End();
 	}
 
-	void OnEvent(Sloth::Event& event) override
+	void OnEvent(Sloth::Event& e) override
 	{
-
+		m_CameraController.OnEvent(e);
 	}
 
 private:
@@ -292,12 +275,7 @@ private:
 	Sloth::Ref<Sloth::Texture2D> logTexture;
 	Sloth::Ref<Sloth::Texture2D> stumpTexture;
 
-	Sloth::OrthographicCamera m_Camera;
-	glm::vec3 m_CameraPosition;
-	float m_CameraMoveSpeed = 2.0f;
-
-	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 180.0f;
+	Sloth::OrthographicCameraController m_CameraController;
 
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };

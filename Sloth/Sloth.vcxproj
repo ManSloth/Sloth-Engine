@@ -167,6 +167,7 @@
     <ClInclude Include="src\Sloth\LayerStack.h" />
     <ClInclude Include="src\Sloth\Log.h" />
     <ClInclude Include="src\Sloth\MouseButtonCodes.h" />
+    <ClInclude Include="src\Sloth\OrthographicCameraController.h" />
     <ClInclude Include="src\Sloth\Renderer\Buffer.h" />
     <ClInclude Include="src\Sloth\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Sloth\Renderer\OrthographicCamera.h" />
@@ -610,6 +611,7 @@
     <ClCompile Include="src\Sloth\Layer.cpp" />
     <ClCompile Include="src\Sloth\LayerStack.cpp" />
     <ClCompile Include="src\Sloth\Log.cpp" />
+    <ClCompile Include="src\Sloth\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Sloth\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Sloth\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Sloth\Renderer\RenderCommand.cpp" />
