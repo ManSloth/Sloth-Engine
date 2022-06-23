@@ -23,16 +23,136 @@
     <None Include="assets\shaders\Texture.glsl" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="assets\textures\FallenTree.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="assets\textures\Grass.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="assets\textures\grass2.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="assets\textures\Shield.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\7.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\8.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\9.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\10.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\11.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\12.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\13.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\14.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\15.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\16.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\17.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\18.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\19.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\20.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\21.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\22.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\23.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\24.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\25.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\26.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\27.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\28.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\29.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\30.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\31.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\32.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\33.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\34.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\35.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\36.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\Dirt0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\Dirt1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\Dirt2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\Dirt3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\Log For Test.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

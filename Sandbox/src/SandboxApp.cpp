@@ -8,11 +8,12 @@
 #include <glm/gtc/type_ptr.hpp>
 
 
+
 class ExampleLayer : public Sloth::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(1.1f, 0.6f, 0.0f)
 	{
 		m_VertexArray.reset(Sloth::VertexArray::Create());
 
@@ -134,7 +135,26 @@ public:
 		m_TextureShader.reset(Sloth::Shader::Create("assets/shaders/Texture.glsl"));
 
 		m_Texture = Sloth::Texture2D::Create("assets/textures/Grass2.png");
-		m_AlphaTexture = Sloth::Texture2D::Create("assets/textures/Grass.png");
+		m_AlphaTexture = Sloth::Texture2D::Create("assets/textures/0.png");
+
+		for (int i = 0; i <= 45; i++)
+		{
+			texture = Sloth::Texture2D::Create("assets/textures/" + std::to_string(i) + ".png");
+			m_Textures.push_back(texture);
+		}
+		auto start = std::chrono::system_clock::now();
+		int time = std::chrono::system_clock::to_time_t(start);
+		srand(time);
+		auto end = std::chrono::system_clock::now();
+		for (int i = 0; i < 20 * 10; i++)
+		{
+			int randNum = rand() % (44 + 1 - 42) + 42;
+			map.push_back(randNum);
+		}
+
+		logTexture = Sloth::Texture2D::Create("assets/textures/Log For Test1.png");
+		stumpTexture = Sloth::Texture2D::Create("assets/textures/stump.png");
+
 
 		std::dynamic_pointer_cast<Sloth::OpenGLShader>(m_TextureShader)->Bind();
 		std::dynamic_pointer_cast<Sloth::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
@@ -182,22 +202,25 @@ public:
 			{
 				glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
 				glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
-				Sloth::Renderer::Submit(m_FlatColorShader, m_SquareVA, transform);
+				//Sloth::Renderer::Submit(m_FlatColorShader, m_SquareVA, transform);
 			}
 		}
 
 		// big grass texture
-		m_Texture->Bind();
-		Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		//m_Texture->Bind();
+		//Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 
 		// Small Group of grass tiles
 		scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.5, 0.25, 1));
 		m_AlphaTexture->Bind();
-		for (int y = 0; y < 20; y++)
+
+		int mapIndex = 0;
+		for (int y = 20; y > 0; y--)
 		{
 			for (int x = 0; x < 10; x++)
 			{
+				m_Textures.at(map.at(mapIndex))->Bind();
 				if (y % 2 == 0)
 				{
 					glm::vec3 pos((x * 0.24f) +0.12f, (y * 0.06f), 0.0f);
@@ -210,13 +233,26 @@ public:
 					glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
 					Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, transform);
 				}
+
+				mapIndex++;
 			}
 		}
+
+		// Log Texture
+		logTexture->Bind();
+		glm::vec3 pos(1.0f, 0.5f, 0.0f);
+		glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
+		Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, transform);
+
+		{stumpTexture->Bind();
+		glm::vec3 pos(0.8f, 0.5f, 0.0f);
+		glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
+		Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, transform); }
 
 		//m_AlphaTexture->Bind();
 		//Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		// Triangle
-		Sloth::Renderer::Submit(m_Shader, m_VertexArray);
+		//Sloth::Renderer::Submit(m_Shader, m_VertexArray);
 
 		//Sloth::Renderer::EndScene();
 
@@ -244,6 +280,12 @@ private:
 
 	Sloth::Ref<Sloth::Texture2D> m_Texture;
 	Sloth::Ref<Sloth::Texture2D> m_AlphaTexture;
+
+	Sloth::Ref<Sloth::Texture2D> texture;
+	std::vector<Sloth::Ref<Sloth::Texture2D>> m_Textures;
+	std::vector<int> map;
+	Sloth::Ref<Sloth::Texture2D> logTexture;
+	Sloth::Ref<Sloth::Texture2D> stumpTexture;
 
 	Sloth::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
