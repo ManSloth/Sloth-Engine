@@ -96,7 +96,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(Sloth::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = Sloth::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
 
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -130,9 +130,9 @@ public:
 			}
 		)";
 
-		m_FlatColorShader.reset(Sloth::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = Sloth::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-		m_TextureShader.reset(Sloth::Shader::Create("assets/shaders/Texture.glsl"));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 		m_Texture = Sloth::Texture2D::Create("assets/textures/Grass2.png");
 		m_AlphaTexture = Sloth::Texture2D::Create("assets/textures/0.png");
@@ -148,7 +148,8 @@ public:
 		auto end = std::chrono::system_clock::now();
 		for (int i = 0; i < 20 * 10; i++)
 		{
-			int randNum = rand() % (44 + 1 - 42) + 42;
+			int randNum = rand() % (5 + 1 - 1) + 1;
+			//int randNum = rand() % 36;
 			map.push_back(randNum);
 		}
 
@@ -156,8 +157,8 @@ public:
 		stumpTexture = Sloth::Texture2D::Create("assets/textures/stump.png");
 
 
-		std::dynamic_pointer_cast<Sloth::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Sloth::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<Sloth::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Sloth::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Sloth::Timestep ts) override
@@ -206,6 +207,8 @@ public:
 			}
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
+
 		// big grass texture
 		//m_Texture->Bind();
 		//Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
@@ -225,13 +228,13 @@ public:
 				{
 					glm::vec3 pos((x * 0.24f) +0.12f, (y * 0.06f), 0.0f);
 					glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
-					Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, transform);
+					Sloth::Renderer::Submit(textureShader, m_SquareVA, transform);
 				}
 				else
 				{
 					glm::vec3 pos(x * 0.24f, y * 0.06f, 0.0f);
 					glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
-					Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, transform);
+					Sloth::Renderer::Submit(textureShader, m_SquareVA, transform);
 				}
 
 				mapIndex++;
@@ -242,12 +245,12 @@ public:
 		logTexture->Bind();
 		glm::vec3 pos(1.0f, 0.5f, 0.0f);
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
-		Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, transform);
+		Sloth::Renderer::Submit(textureShader, m_SquareVA, transform);
 
 		{stumpTexture->Bind();
 		glm::vec3 pos(0.8f, 0.5f, 0.0f);
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
-		Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, transform); }
+		Sloth::Renderer::Submit(textureShader, m_SquareVA, transform); }
 
 		//m_AlphaTexture->Bind();
 		//Sloth::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
@@ -272,15 +275,17 @@ public:
 	}
 
 private:
+	Sloth::ShaderLibrary m_ShaderLibrary;
 	Sloth::Ref<Sloth::Shader> m_Shader;
 	Sloth::Ref<Sloth::VertexArray> m_VertexArray;
 
-	Sloth::Ref<Sloth::Shader> m_FlatColorShader, m_TextureShader;
+	Sloth::Ref<Sloth::Shader> m_FlatColorShader;
 	Sloth::Ref<Sloth::VertexArray> m_SquareVA;
 
 	Sloth::Ref<Sloth::Texture2D> m_Texture;
 	Sloth::Ref<Sloth::Texture2D> m_AlphaTexture;
 
+	// random map textures
 	Sloth::Ref<Sloth::Texture2D> texture;
 	std::vector<Sloth::Ref<Sloth::Texture2D>> m_Textures;
 	std::vector<int> map;
