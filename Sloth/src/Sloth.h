@@ -3,16 +3,16 @@
 // For use by Sloth applications
 
 //#include <stdio.h>
-#include "Sloth/Application.h"
-#include "Sloth/Layer.h"
-#include "Sloth/Log.h"
+#include "Sloth/Core/Application.h"
+#include "Sloth/Core/Layer.h"
+#include "Sloth/Core/Log.h"
 
 #include "Sloth/Core/Timestep.h"
 
-#include "Sloth/Input.h"
-#include "Sloth/KeyCodes.h"
-#include "Sloth/MouseButtonCodes.h"
-#include "Sloth/OrthographicCameraController.h"
+#include "Sloth/Core/Input.h"
+#include "Sloth/Core/KeyCodes.h"
+#include "Sloth/Core/MouseButtonCodes.h"
+#include "Sloth/Renderer/OrthographicCameraController.h"
 
 #include "Sloth/ImGui/ImGuiLayer.h"
 
@@ -30,5 +30,5 @@
 
 
 // --- Entry Point -----------------------------------
-#include "Sloth/EntryPoint.h"
+#include "Sloth/Core/EntryPoint.h"
 // ---------------------------------------------------

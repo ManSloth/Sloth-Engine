@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "Sloth/Core.h"
+#include "Sloth/Core/Core.h"
 
 namespace Sloth {
 

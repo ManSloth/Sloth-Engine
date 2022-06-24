@@ -1,8 +1,8 @@
 #include "slthpch.h"
 #include "OrthographicCameraController.h"
 
-#include "Sloth/Input.h"
-#include "Sloth/KeyCodes.h"
+#include "Sloth/Core/Input.h"
+#include "Sloth/Core/KeyCodes.h"
 
 namespace Sloth {
 

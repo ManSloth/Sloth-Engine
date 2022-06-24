@@ -1,7 +1,7 @@
 #include "slthpch.h"
 #include "WindowsInput.h"
 
-#include "Sloth/Application.h"
+#include "Sloth/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace Sloth {

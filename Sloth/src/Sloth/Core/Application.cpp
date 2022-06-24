@@ -1,7 +1,7 @@
 #include "slthpch.h"
 #include "Application.h"
 
-#include "Sloth/Log.h"
+#include "Sloth/Core/Log.h"
 
 #include "Sloth/Renderer/Renderer.h"
 

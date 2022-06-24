@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sloth/Input.h"
+#include "Sloth/Core/Input.h"
 
 namespace Sloth {
 

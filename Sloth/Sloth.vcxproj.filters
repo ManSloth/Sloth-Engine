@@ -81,17 +81,38 @@
     <ClInclude Include="src\Sloth.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sloth\Application.h">
-      <Filter>src\Sloth</Filter>
+    <ClInclude Include="src\Sloth\Core\Application.h">
+      <Filter>src\Sloth\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sloth\Core.h">
-      <Filter>src\Sloth</Filter>
+    <ClInclude Include="src\Sloth\Core\Core.h">
+      <Filter>src\Sloth\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Core\EntryPoint.h">
+      <Filter>src\Sloth\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Core\Input.h">
+      <Filter>src\Sloth\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Core\KeyCodes.h">
+      <Filter>src\Sloth\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Core\Layer.h">
+      <Filter>src\Sloth\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Core\LayerStack.h">
+      <Filter>src\Sloth\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Core\Log.h">
+      <Filter>src\Sloth\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Core\MouseButtonCodes.h">
+      <Filter>src\Sloth\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Core\Timestep.h">
       <Filter>src\Sloth\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sloth\EntryPoint.h">
-      <Filter>src\Sloth</Filter>
+    <ClInclude Include="src\Sloth\Core\Window.h">
+      <Filter>src\Sloth\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Events\ApplicationEvent.h">
       <Filter>src\Sloth\Events</Filter>
@@ -108,24 +129,6 @@
     <ClInclude Include="src\Sloth\ImGui\ImGuiLayer.h">
       <Filter>src\Sloth\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sloth\Input.h">
-      <Filter>src\Sloth</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Sloth\KeyCodes.h">
-      <Filter>src\Sloth</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Sloth\Layer.h">
-      <Filter>src\Sloth</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Sloth\LayerStack.h">
-      <Filter>src\Sloth</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Sloth\Log.h">
-      <Filter>src\Sloth</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Sloth\MouseButtonCodes.h">
-      <Filter>src\Sloth</Filter>
-    </ClInclude>
     <ClInclude Include="src\Sloth\Renderer\Buffer.h">
       <Filter>src\Sloth\Renderer</Filter>
     </ClInclude>
@@ -133,6 +136,9 @@
       <Filter>src\Sloth\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Renderer\OrthographicCamera.h">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Renderer\OrthographicCameraController.h">
       <Filter>src\Sloth\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Renderer\RenderCommand.h">
@@ -152,9 +158,6 @@
     </ClInclude>
     <ClInclude Include="src\Sloth\Renderer\VertexArray.h">
       <Filter>src\Sloth\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Sloth\Window.h">
-      <Filter>src\Sloth</Filter>
     </ClInclude>
     <ClInclude Include="src\slthpch.h">
       <Filter>src</Filter>
@@ -1407,7 +1410,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sloth\OrthographicCameraController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1434,8 +1436,17 @@
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sloth\Application.cpp">
-      <Filter>src\Sloth</Filter>
+    <ClCompile Include="src\Sloth\Core\Application.cpp">
+      <Filter>src\Sloth\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Core\Layer.cpp">
+      <Filter>src\Sloth\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Core\LayerStack.cpp">
+      <Filter>src\Sloth\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Core\Log.cpp">
+      <Filter>src\Sloth\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Sloth\ImGui\ImGuiBuild.cpp">
       <Filter>src\Sloth\ImGui</Filter>
@@ -1443,19 +1454,13 @@
     <ClCompile Include="src\Sloth\ImGui\ImGuiLayer.cpp">
       <Filter>src\Sloth\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sloth\Layer.cpp">
-      <Filter>src\Sloth</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Sloth\LayerStack.cpp">
-      <Filter>src\Sloth</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Sloth\Log.cpp">
-      <Filter>src\Sloth</Filter>
-    </ClCompile>
     <ClCompile Include="src\Sloth\Renderer\Buffer.cpp">
       <Filter>src\Sloth\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Sloth\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Renderer\OrthographicCameraController.cpp">
       <Filter>src\Sloth\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Sloth\Renderer\RenderCommand.cpp">
@@ -1482,6 +1487,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sloth\OrthographicCameraController.cpp" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sloth/Layer.h"
+#include "Sloth/Core/Layer.h"
 
 #include "Sloth/Events/ApplicationEvent.h"
 #include "Sloth/Events/KeyEvent.h"

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sloth/Window.h"
+#include "Sloth/Core/Window.h"
 #include "Sloth/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
