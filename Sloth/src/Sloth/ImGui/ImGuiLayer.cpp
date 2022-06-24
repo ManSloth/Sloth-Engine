@@ -92,7 +92,8 @@ namespace Sloth {
 
 	void ImGuiLayer::OnImGuiRender()
 	{
-		static bool show = true;
-		ImGui::ShowDemoWindow(&show);
+		// Show a demo window with all features of ImGui
+		//static bool show = true;
+		//ImGui::ShowDemoWindow(&show);
 	}
 }
