@@ -137,7 +137,7 @@ public:
 		m_Texture = Sloth::Texture2D::Create("assets/textures/Grass2.png");
 		m_AlphaTexture = Sloth::Texture2D::Create("assets/textures/0.png");
 
-		for (int i = 0; i <= 45; i++)
+		for (int i = 0; i <= 19; i++)
 		{
 			texture = Sloth::Texture2D::Create("assets/textures/" + std::to_string(i) + ".png");
 			m_Textures.push_back(texture);
@@ -149,7 +149,7 @@ public:
 		for (int i = 0; i < 20 * 10; i++)
 		{
 			// rand() % (max_number + 1 - minimum_number) + minimum_number
-			int randNum = rand() % (36 + 1 - 28) + 28;
+			int randNum = rand() % (19 + 1 - 0) + 0;
 			//int randNum = rand() % 36;
 			map.push_back(randNum);
 		}
