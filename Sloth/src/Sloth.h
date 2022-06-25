@@ -18,6 +18,7 @@
 
 // --- Renderer --------------------------------------
 #include "Sloth/Renderer/Renderer.h"
+#include "Sloth/Renderer/Renderer2D.h"
 #include "Sloth/Renderer/RenderCommand.h"
 
 #include "Sloth/Renderer/Buffer.h"
