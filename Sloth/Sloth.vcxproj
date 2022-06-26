@@ -163,6 +163,7 @@
     <ClInclude Include="src\Sloth\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Sloth\Core\Timestep.h" />
     <ClInclude Include="src\Sloth\Core\Window.h" />
+    <ClInclude Include="src\Sloth\Debug\Instrumentor.h" />
     <ClInclude Include="src\Sloth\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Sloth\Events\Event.h" />
     <ClInclude Include="src\Sloth\Events\KeyEvent.h" />

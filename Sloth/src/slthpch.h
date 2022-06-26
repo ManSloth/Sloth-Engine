@@ -15,6 +15,8 @@
 
 #include "Sloth/Core/Log.h"
 
+#include "Sloth/Debug/Instrumentor.h"
+
 #ifdef SLTH_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif
