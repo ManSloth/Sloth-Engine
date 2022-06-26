@@ -10,7 +10,7 @@
 
 namespace Sloth {
 
-	static bool s_GLFWInitialized = false;
+	static uint8_t s_GLFWWindowCount = 0;
 
 	static void GLFWErrorCallback(int error, const char* description)
 	{
@@ -24,16 +24,22 @@ namespace Sloth {
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
+		SLTH_PROFILE_FUNCTION();
+
 		Init(props);
 	}
 
 	WindowsWindow::~WindowsWindow()
 	{
+		SLTH_PROFILE_FUNCTION();
+
 		Shutdown();
 	}
 
 	void WindowsWindow::Init(const WindowProps& props)
 	{
+		SLTH_PROFILE_FUNCTION();
+
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
@@ -41,20 +47,25 @@ namespace Sloth {
 
 		SLTH_CORE_INFO("Creating window {0} ({1}, {2}", props.Title, props.Width, props.Height);
 
-
-		if (!s_GLFWInitialized)
+		if (s_GLFWWindowCount == 0)
 		{
 			//TODO: glfwTerminate on system shutdown
+			SLTH_PROFILE_SCOPE("glfwInit");
+
+			SLTH_CORE_INFO("Initializing GLFW");
 			int success = glfwInit();
 			SLTH_CORE_ASSERT(success, "Could not initialize GLFW!");
 			glfwSetErrorCallback(GLFWErrorCallback);
-
-			s_GLFWInitialized = true;
 		}
 
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		m_Context = new OpenGLContext(m_Window);
+		{
+			SLTH_PROFILE_SCOPE("glfwCreateWindow");
 
+			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+			++s_GLFWWindowCount;
+		}
+
+		m_Context = new OpenGLContext(m_Window);
 		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
@@ -152,17 +163,29 @@ namespace Sloth {
 
 	void WindowsWindow::Shutdown()
 	{
+		SLTH_PROFILE_FUNCTION();
+
 		glfwDestroyWindow(m_Window);
+
+		if (--s_GLFWWindowCount == 0)
+		{
+			SLTH_CORE_INFO("Terminating GLFW");
+			glfwTerminate();
+		}
 	}
 
 	void WindowsWindow::OnUpdate()
 	{
+		SLTH_PROFILE_FUNCTION();
+
 		glfwPollEvents();
 		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)
 	{
+		SLTH_PROFILE_FUNCTION();
+
 		if (enabled)
 			glfwSwapInterval(1);
 		else

@@ -1,5 +1,5 @@
 #include "Sandbox2D.h"
-#include "../vendor/imgui/imgui.h"
+#include "imgui/imgui.h"
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -12,11 +12,15 @@ Sandbox2D::Sandbox2D()
 
 void Sandbox2D::OnAttach()
 {
+	SLTH_PROFILE_FUNCTION();
+
 	m_Texture = Sloth::Texture2D::Create("assets/textures/Shield.png");
 }
 
 void Sandbox2D::OnDetach()
 {
+	SLTH_PROFILE_FUNCTION();
+
 }
 
 void Sandbox2D::OnUpdate(Sloth::Timestep ts)
@@ -24,10 +28,7 @@ void Sandbox2D::OnUpdate(Sloth::Timestep ts)
 	SLTH_PROFILE_FUNCTION();
 
 	//Update
-	{
-		SLTH_PROFILE_SCOPE("CameraController::OnUpdate");
-		m_CameraController.OnUpdate(ts);
-	}
+	m_CameraController.OnUpdate(ts);
 
 	//Render
 	// Update

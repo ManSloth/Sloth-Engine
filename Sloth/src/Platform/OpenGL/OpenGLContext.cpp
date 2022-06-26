@@ -14,6 +14,8 @@ namespace Sloth
 
 	void OpenGLContext::Init()
 	{
+		SLTH_PROFILE_FUNCTION();
+
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		SLTH_CORE_ASSERT(status, "Failed to initialize Glad!");
@@ -26,6 +28,8 @@ namespace Sloth
 
 	void OpenGLContext::SwapBuffers()
 	{
+		SLTH_PROFILE_FUNCTION();
+
 		glfwSwapBuffers(m_WindowHandle);
 	}
 }
