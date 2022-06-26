@@ -49,7 +49,7 @@ namespace Sloth {
 
 		if (s_GLFWWindowCount == 0)
 		{
-			//TODO: glfwTerminate on system shutdown
+			
 			SLTH_PROFILE_SCOPE("glfwInit");
 
 			SLTH_CORE_INFO("Initializing GLFW");
