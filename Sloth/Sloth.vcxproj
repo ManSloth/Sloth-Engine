@@ -80,7 +80,9 @@
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
+      <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -91,6 +93,9 @@
     <Lib>
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Sloth\Sloth.lib\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Sloth\Sloth.lib "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Sloth\Sloth.lib "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -105,6 +110,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -116,6 +122,9 @@
     <Lib>
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\bin\Release-windows-x86_64\Sloth\Sloth.lib\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Sloth\Sloth.lib "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Sloth\Sloth.lib "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
@@ -130,6 +139,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -141,6 +151,9 @@
     <Lib>
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Sloth\Sloth.lib\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Sloth\Sloth.lib "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Sloth\Sloth.lib "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
@@ -161,6 +174,7 @@
     <ClInclude Include="src\Sloth\Core\LayerStack.h" />
     <ClInclude Include="src\Sloth\Core\Log.h" />
     <ClInclude Include="src\Sloth\Core\MouseButtonCodes.h" />
+    <ClInclude Include="src\Sloth\Core\MouseCodes.h" />
     <ClInclude Include="src\Sloth\Core\Timestep.h" />
     <ClInclude Include="src\Sloth\Core\Window.h" />
     <ClInclude Include="src\Sloth\Debug\Instrumentor.h" />
@@ -608,12 +622,15 @@
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Sloth\Core\Application.cpp" />
+    <ClCompile Include="src\Sloth\Core\Input.cpp" />
     <ClCompile Include="src\Sloth\Core\Layer.cpp" />
     <ClCompile Include="src\Sloth\Core\LayerStack.cpp" />
     <ClCompile Include="src\Sloth\Core\Log.cpp" />
+    <ClCompile Include="src\Sloth\Core\Window.cpp" />
     <ClCompile Include="src\Sloth\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Sloth\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Sloth\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Sloth\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\Sloth\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Sloth\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Sloth\Renderer\RenderCommand.cpp" />

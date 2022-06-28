@@ -5,6 +5,26 @@
 
 namespace Sloth {
 
+	void OpenGLMessageCallback(
+		unsigned source,
+		unsigned type,
+		unsigned id,
+		unsigned severity,
+		int length,
+		const char* message,
+		const void* userParam)
+	{
+		switch (severity)
+		{
+		case GL_DEBUG_SEVERITY_HIGH:         SLTH_CORE_CRITICAL(message); return;
+		case GL_DEBUG_SEVERITY_MEDIUM:       SLTH_CORE_ERROR(message); return;
+		case GL_DEBUG_SEVERITY_LOW:          SLTH_CORE_WARN(message); return;
+		case GL_DEBUG_SEVERITY_NOTIFICATION: SLTH_CORE_TRACE(message); return;
+		}
+
+		SLTH_CORE_ASSERT(false, "Unknown severity level!");
+	}
+
 	void OpenGLRendererAPI::Init()
 	{
 		SLTH_PROFILE_FUNCTION();
@@ -14,6 +34,14 @@ namespace Sloth {
 
 		glEnable(GL_DEPTH_TEST);
 	}
+
+#ifdef HZ_DEBUG
+	glEnable(GL_DEBUG_OUTPUT);
+	glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+	glDebugMessageCallback(OpenGLMessageCallback, nullptr);
+
+	glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, NULL, GL_FALSE);
+#endif
 
 	void OpenGLRendererAPI::SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height)
 	{

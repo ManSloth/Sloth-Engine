@@ -1,5 +1,5 @@
 workspace "Sloth"
-	architecture "x64"
+	architecture "x86_64"
 	startproject "Sandbox"
 
 	configurations
@@ -7,6 +7,11 @@ workspace "Sloth"
 		"Debug",
 		"Release",
 		"Dist"
+	}
+
+	flags
+	{
+		"MultiProcessorCompile"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
@@ -18,6 +23,8 @@ IncludeDir["Glad"] = "Sloth/vendor/Glad/include"
 IncludeDir["ImGui"] = "Sloth/vendor/imgui"
 IncludeDir["glm"] = "Sloth/vendor/glm"
 IncludeDir["stb_image"] = "Sloth/vendor/stb_image"
+
+group "Dependencies"
 
 include "Sloth/vendor/GLFW"
 include "Sloth/vendor/Glad"
@@ -80,6 +87,11 @@ project "Sloth"
 			"SLTH_PLATFORM_WINDOWS",
 			"SLTH_BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
+		}
+
+		postbuildcommands
+		{
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 	
 		filter "configurations:Debug"

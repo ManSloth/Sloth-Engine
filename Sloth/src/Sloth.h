@@ -3,6 +3,8 @@
 // For use by Sloth applications
 
 //#include <stdio.h>
+#include "Sloth/Core/Core.h"
+
 #include "Sloth/Core/Application.h"
 #include "Sloth/Core/Layer.h"
 #include "Sloth/Core/Log.h"
@@ -11,7 +13,7 @@
 
 #include "Sloth/Core/Input.h"
 #include "Sloth/Core/KeyCodes.h"
-#include "Sloth/Core/MouseButtonCodes.h"
+#include "Sloth/Core/MouseCodes.h"
 #include "Sloth/Renderer/OrthographicCameraController.h"
 
 #include "Sloth/ImGui/ImGuiLayer.h"

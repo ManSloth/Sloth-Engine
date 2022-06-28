@@ -1,6 +1,8 @@
 #include "slthpch.h"
 #include "WindowsWindow.h"
 
+#include "Sloth/Core/Input.h"
+
 #include "Sloth/Events/ApplicationEvent.h"
 #include "Sloth/Events/MouseEvent.h"
 #include "Sloth/Events/KeyEvent.h"
@@ -15,11 +17,6 @@ namespace Sloth {
 	static void GLFWErrorCallback(int error, const char* description)
 	{
 		SLTH_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
-	}
-
-	Window* Window::Create(const WindowProps& props)
-	{
-		return new WindowsWindow(props);
 	}
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
@@ -52,7 +49,6 @@ namespace Sloth {
 			
 			SLTH_PROFILE_SCOPE("glfwInit");
 
-			SLTH_CORE_INFO("Initializing GLFW");
 			int success = glfwInit();
 			SLTH_CORE_ASSERT(success, "Could not initialize GLFW!");
 			glfwSetErrorCallback(GLFWErrorCallback);
@@ -60,12 +56,15 @@ namespace Sloth {
 
 		{
 			SLTH_PROFILE_SCOPE("glfwCreateWindow");
-
+			#if defined(HZ_DEBUG)
+						if (Renderer::GetAPI() == RendererAPI::API::OpenGL)
+							glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
+			#endif
 			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 			++s_GLFWWindowCount;
 		}
 
-		m_Context = new OpenGLContext(m_Window);
+		m_Context = GraphicsContext::Create(m_Window);
 		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
@@ -97,19 +96,19 @@ namespace Sloth {
 			{
 				case GLFW_PRESS:
 				{
-					KeyPressedEvent event(key, 0);
+					KeyPressedEvent event(static_cast<KeyCode>(key), 0);
 					data.EventCallback(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
-					KeyReleasedEvent event(key);
+					KeyReleasedEvent event(static_cast<KeyCode>(key));
 					data.EventCallback(event);
 					break;
 				}
 				case GLFW_REPEAT:
 				{
-					KeyPressedEvent event(key, 1);
+					KeyPressedEvent event(static_cast<KeyCode>(key), 1);
 					data.EventCallback(event);
 					break;
 				}
@@ -119,7 +118,7 @@ namespace Sloth {
 		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-			KeyTypedEvent event(keycode);
+			KeyTypedEvent event(static_cast<KeyCode>(keycode));
 			data.EventCallback(event);
 		});
 
@@ -131,13 +130,13 @@ namespace Sloth {
 			{
 				case GLFW_PRESS:
 				{
-					MouseButtonPressedEvent event(button);
+					MouseButtonPressedEvent event(static_cast<MouseCode>(button));
 					data.EventCallback(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
-					MouseButtonReleasedEvent event(button);
+					MouseButtonReleasedEvent event(static_cast<MouseCode>(button));
 					data.EventCallback(event);
 					break;
 				}
@@ -166,8 +165,9 @@ namespace Sloth {
 		SLTH_PROFILE_FUNCTION();
 
 		glfwDestroyWindow(m_Window);
+		--s_GLFWWindowCount;
 
-		if (--s_GLFWWindowCount == 0)
+		if (s_GLFWWindowCount == 0)
 		{
 			SLTH_CORE_INFO("Terminating GLFW");
 			glfwTerminate();

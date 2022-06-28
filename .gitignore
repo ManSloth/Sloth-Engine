@@ -1,4 +1,14 @@
-# Directories
-.vs/
-bin/
+# Binaries
+**/bin/
+!vendor/bin/premake/
 bin-int/
+
+# Sloth files
+*.log
+
+# Visual Studio files and folder
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user 

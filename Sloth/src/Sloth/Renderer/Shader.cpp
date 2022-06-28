@@ -10,8 +10,8 @@ namespace Sloth {
 	{
 		switch (Renderer::GetAPI())
 		{
-			case RendererAPI::API::None:		SLTH_CORE_ASSERT(false, "RenderAPI::None is currently not supported!"); return nullptr;
-			case RendererAPI::API::OpenGL:	return std::make_shared<OpenGLShader>(filepath);
+			case RendererAPI::API::None:	SLTH_CORE_ASSERT(false, "RenderAPI::None is currently not supported!"); return nullptr;
+			case RendererAPI::API::OpenGL:  return CreateRef<OpenGLShader>(filepath);
 		}
 
 		SLTH_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -22,8 +22,8 @@ namespace Sloth {
 	{
 		switch (Renderer::GetAPI())
 		{
-			case RendererAPI::API::None:		SLTH_CORE_ASSERT(false, "RenderAPI::None is currently not supported!"); return nullptr;
-			case RendererAPI::API::OpenGL:	return std::make_shared<OpenGLShader>(name, vertexSrc, fragmentSrc);
+			case RendererAPI::API::None:	SLTH_CORE_ASSERT(false, "RenderAPI::None is currently not supported!"); return nullptr;
+			case RendererAPI::API::OpenGL:  return CreateRef<OpenGLShader>(name, vertexSrc, fragmentSrc);
 		}
 
 		SLTH_CORE_ASSERT(false, "Unknown RendererAPI!");
