@@ -158,7 +158,7 @@ namespace Sloth {
 	};
 }
 
-#define SLTH_PROFILE 1
+#define SLTH_PROFILE 0
 #if SLTH_PROFILE
 // Resolve which function signature macro will be used. Note that this only
 	// is resolved when the (pre)compiler starts, so the syntax highlighting
