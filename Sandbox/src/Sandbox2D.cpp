@@ -15,6 +15,7 @@ void Sandbox2D::OnAttach()
 	SLTH_PROFILE_FUNCTION();
 
 	m_Texture = Sloth::Texture2D::Create("assets/textures/checkerboard.png");
+	m_SpriteSheet = Sloth::Texture2D::Create("assets/textures/RPG_Sprites.png");
 }
 
 void Sandbox2D::OnDetach()
@@ -38,7 +39,9 @@ void Sandbox2D::OnUpdate(Sloth::Timestep ts)
 		Sloth::RenderCommand::Clear();
 	}
 
+
 	{
+#if 0
 		static float rotation = 0.0f;
 		rotation += ts * 50.0f;
 
@@ -49,17 +52,22 @@ void Sandbox2D::OnUpdate(Sloth::Timestep ts)
 		Sloth::Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.75f }, { 0.2f, 0.3f, 0.8f, 1.0f });
 		Sloth::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 20.0f, 20.0f }, m_Texture, 10.0f);
 		Sloth::Renderer2D::DrawRotatedQuad({ -2.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, rotation, m_Texture, 20.0f);
-		//Sloth::Renderer2D::EndScene();
+		Sloth::Renderer2D::EndScene();
 
 		//Sloth::Renderer2D::BeginScene(m_CameraController.GetCamera());
-		for (float y = -5.0f; y < 5.0f; y += 0.1f)
+		for (float y = -5.0f; y < 5.0f; y += 0.5f)
 		{
-			for (float x = -5.0f; x < 5.0f; x += 0.1f)
+			for (float x = -5.0f; x < 5.0f; x += 0.5f)
 			{
 				glm::vec4 color = { (x + 5.0f) / 10.0f, 0.4f, ( y + 5.0f) / 10.0f, 0.7f };
 				Sloth::Renderer2D::DrawQuad({ x, y }, { 0.45f, 0.45f }, color);
 			}
 		}
+#endif
+		Sloth::Renderer2D::BeginScene(m_CameraController.GetCamera());
+
+		Sloth::Renderer2D::DrawQuad({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, m_SpriteSheet);
+
 		Sloth::Renderer2D::EndScene();
 	}
 }
