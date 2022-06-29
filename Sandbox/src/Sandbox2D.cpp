@@ -16,6 +16,8 @@ void Sandbox2D::OnAttach()
 
 	m_Texture = Sloth::Texture2D::Create("assets/textures/checkerboard.png");
 	m_SpriteSheet = Sloth::Texture2D::Create("assets/textures/RPG_Sprites.png");
+
+	m_TextureStairs = Sloth::SubTexture2D::CreateFromCoords(m_SpriteSheet, { 2, 1 }, { 128, 128 }, { 1,2 });
 }
 
 void Sandbox2D::OnDetach()
@@ -66,7 +68,7 @@ void Sandbox2D::OnUpdate(Sloth::Timestep ts)
 #endif
 		Sloth::Renderer2D::BeginScene(m_CameraController.GetCamera());
 
-		Sloth::Renderer2D::DrawQuad({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, m_SpriteSheet);
+		Sloth::Renderer2D::DrawQuad({ 0.0f, 0.0f, 0.5f }, { 1.0f, 2.0f }, m_TextureStairs);
 
 		Sloth::Renderer2D::EndScene();
 	}

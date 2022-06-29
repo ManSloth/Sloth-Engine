@@ -192,6 +192,7 @@
     <ClInclude Include="src\Sloth\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Sloth\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Sloth\Renderer\Shader.h" />
+    <ClInclude Include="src\Sloth\Renderer\SubTexture2D.h" />
     <ClInclude Include="src\Sloth\Renderer\Texture.h" />
     <ClInclude Include="src\Sloth\Renderer\VertexArray.h" />
     <ClInclude Include="src\slthpch.h" />
@@ -638,6 +639,7 @@
     <ClCompile Include="src\Sloth\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Sloth\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Sloth\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Sloth\Renderer\SubTexture2D.cpp" />
     <ClCompile Include="src\Sloth\Renderer\Texture.cpp" />
     <ClCompile Include="src\Sloth\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\slthpch.cpp">

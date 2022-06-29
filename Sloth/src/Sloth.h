@@ -26,6 +26,7 @@
 #include "Sloth/Renderer/Buffer.h"
 #include "Sloth/Renderer/Shader.h"
 #include "Sloth/Renderer/Texture.h"
+#include "Sloth/Renderer/SubTexture2D.h"
 #include "Sloth/Renderer/VertexArray.h"
 
 #include "Sloth/Renderer/OrthographicCamera.h"

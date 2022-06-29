@@ -1420,6 +1420,7 @@
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Core\MouseCodes.h" />
+    <ClInclude Include="src\Sloth\Renderer\SubTexture2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1505,5 +1506,6 @@
     </ClCompile>
     <ClCompile Include="src\Sloth\Core\Input.cpp" />
     <ClCompile Include="src\Sloth\Core\Window.cpp" />
+    <ClCompile Include="src\Sloth\Renderer\SubTexture2D.cpp" />
   </ItemGroup>
 </Project>
