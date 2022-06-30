@@ -52,6 +52,11 @@ namespace Sloth {
 		layer->OnAttach();
 	}
 
+	void Application::Close()
+	{
+		m_Running = false;
+	}
+
 	void Application::OnEvent(Event& e)
 	{
 		SLTH_PROFILE_FUNCTION();
