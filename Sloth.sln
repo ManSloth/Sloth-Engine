@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sloth-Editor", "Sloth-Editor\Sloth-Editor.vcxproj", "{43E39A2E-2F46-2AD3-D8CB-6289C40DF655}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{53E47842-3FC8-3998-A828-34EB942B241A}"
 EndProject
@@ -11,9 +11,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Glad", "Sloth\vendor\Glad\G
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImGui", "Sloth\vendor\imgui\ImGui.vcxproj", "{C0FF640D-2C14-8DBE-F595-301E616989EF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sloth", "Sloth\Sloth.vcxproj", "{6F121A0E-DB26-42BF-A4A8-E51E107C3EF0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sloth-Editor", "Sloth-Editor\Sloth-Editor.vcxproj", "{43E39A2E-2F46-2AD3-D8CB-6289C40DF655}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sloth", "Sloth\Sloth.vcxproj", "{6F121A0E-DB26-42BF-A4A8-E51E107C3EF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,12 +22,12 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Debug|x64.ActiveCfg = Debug|x64
-		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Debug|x64.Build.0 = Debug|x64
-		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Dist|x64.ActiveCfg = Dist|x64
-		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Dist|x64.Build.0 = Dist|x64
-		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Release|x64.ActiveCfg = Release|x64
-		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Release|x64.Build.0 = Release|x64
+		{43E39A2E-2F46-2AD3-D8CB-6289C40DF655}.Debug|x64.ActiveCfg = Debug|x64
+		{43E39A2E-2F46-2AD3-D8CB-6289C40DF655}.Debug|x64.Build.0 = Debug|x64
+		{43E39A2E-2F46-2AD3-D8CB-6289C40DF655}.Dist|x64.ActiveCfg = Dist|x64
+		{43E39A2E-2F46-2AD3-D8CB-6289C40DF655}.Dist|x64.Build.0 = Dist|x64
+		{43E39A2E-2F46-2AD3-D8CB-6289C40DF655}.Release|x64.ActiveCfg = Release|x64
+		{43E39A2E-2F46-2AD3-D8CB-6289C40DF655}.Release|x64.Build.0 = Release|x64
 		{154B857C-0182-860D-AA6E-6C109684020F}.Debug|x64.ActiveCfg = Debug|x64
 		{154B857C-0182-860D-AA6E-6C109684020F}.Debug|x64.Build.0 = Debug|x64
 		{154B857C-0182-860D-AA6E-6C109684020F}.Dist|x64.ActiveCfg = Dist|x64
@@ -46,18 +46,18 @@ Global
 		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Dist|x64.Build.0 = Dist|x64
 		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Release|x64.ActiveCfg = Release|x64
 		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Release|x64.Build.0 = Release|x64
+		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Debug|x64.ActiveCfg = Debug|x64
+		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Debug|x64.Build.0 = Debug|x64
+		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Dist|x64.ActiveCfg = Dist|x64
+		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Dist|x64.Build.0 = Dist|x64
+		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Release|x64.ActiveCfg = Release|x64
+		{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}.Release|x64.Build.0 = Release|x64
 		{6F121A0E-DB26-42BF-A4A8-E51E107C3EF0}.Debug|x64.ActiveCfg = Debug|x64
 		{6F121A0E-DB26-42BF-A4A8-E51E107C3EF0}.Debug|x64.Build.0 = Debug|x64
 		{6F121A0E-DB26-42BF-A4A8-E51E107C3EF0}.Dist|x64.ActiveCfg = Dist|x64
 		{6F121A0E-DB26-42BF-A4A8-E51E107C3EF0}.Dist|x64.Build.0 = Dist|x64
 		{6F121A0E-DB26-42BF-A4A8-E51E107C3EF0}.Release|x64.ActiveCfg = Release|x64
 		{6F121A0E-DB26-42BF-A4A8-E51E107C3EF0}.Release|x64.Build.0 = Release|x64
-		{43E39A2E-2F46-2AD3-D8CB-6289C40DF655}.Debug|x64.ActiveCfg = Debug|x64
-		{43E39A2E-2F46-2AD3-D8CB-6289C40DF655}.Debug|x64.Build.0 = Debug|x64
-		{43E39A2E-2F46-2AD3-D8CB-6289C40DF655}.Dist|x64.ActiveCfg = Dist|x64
-		{43E39A2E-2F46-2AD3-D8CB-6289C40DF655}.Dist|x64.Build.0 = Dist|x64
-		{43E39A2E-2F46-2AD3-D8CB-6289C40DF655}.Release|x64.ActiveCfg = Release|x64
-		{43E39A2E-2F46-2AD3-D8CB-6289C40DF655}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

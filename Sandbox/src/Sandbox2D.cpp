@@ -132,21 +132,6 @@ void Sandbox2D::OnImGuiRender()
 {
 	SLTH_PROFILE_FUNCTION();
 
-	
-	ImGui::Begin("Settings");
-
-	auto stats = Sloth::Renderer2D::GetStats();
-	ImGui::Text("Renderer2D Stats:");
-	ImGui::Text("Draw Calls: %d", stats.DrawCalls);
-	ImGui::Text("Quads: %d", stats.QuadCount);
-	ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
-	ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
-
-	ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
-
-	uint32_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
-	ImGui::Image((void*)textureID, ImVec2{ 1280, 720 }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
-	ImGui::End();
 }
 
 void Sandbox2D::OnEvent(Sloth::Event& e)

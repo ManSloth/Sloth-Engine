@@ -1,6 +1,6 @@
 workspace "Sloth"
 	architecture "x86_64"
-	startproject "Sandbox"
+	startproject "Sloth-Editor"
 
 	configurations
 	{

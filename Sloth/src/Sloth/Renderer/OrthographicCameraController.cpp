@@ -72,6 +72,12 @@ namespace Sloth {
 		dispatcher.Dispatch<WindowResizeEvent>(SLTH_BIND_EVENT_FN(OrthographicCameraController::OnWindowResized));
 	}
 
+	void OrthographicCameraController::OnResize(float width, float height)
+	{
+		m_AspectRatio = width / height;
+		CalculateView();
+	}
+
 	void OrthographicCameraController::SetZoomLevel(float level)
 	{
 		m_ZoomLevel = level;
@@ -97,8 +103,7 @@ namespace Sloth {
 	{
 		SLTH_PROFILE_FUNCTION();
 
-		m_AspectRatio = (float)e.GetWidth() / (float)e.GetHeight();
-		CalculateView();
+		OnResize((float)e.GetWidth(), (float)e.GetHeight());
 		return false;
 	}
 
