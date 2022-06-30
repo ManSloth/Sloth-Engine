@@ -18,7 +18,7 @@ namespace Sloth {
 	class SLOTH_API Application
 	{
 	public:
-		Application();
+		Application(const std::string& name = "Sloth App");
 		virtual ~Application();
 
 		void OnEvent(Event& e);

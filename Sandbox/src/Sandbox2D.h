@@ -20,7 +20,6 @@ private:
 	 //Temp
 	Sloth::Ref<Sloth::VertexArray> m_SquareVA;
 	Sloth::Ref<Sloth::Shader> m_FlatColorShader;
-	Sloth::Ref<Sloth::Framebuffer> m_Framebuffer;
 
 	Sloth::Ref<Sloth::Texture2D> m_Texture;
 	Sloth::Ref<Sloth::Texture2D> m_SpriteSheet;

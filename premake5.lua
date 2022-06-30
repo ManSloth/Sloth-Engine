@@ -160,3 +160,56 @@ project "Sandbox"
 			defines "SLTH_DIST"
 			buildoptions "/MD"
 			optimize "on"
+
+project "Sloth-Editor"
+	location "Sloth-Editor"
+	kind "ConsoleApp"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
+
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp"
+	}
+
+	includedirs
+	{
+		"Sloth/vendor/spdlog/include", 
+		"Sloth/src",
+		"Sloth/vendor",
+		"%{IncludeDir.glm}"
+	}
+
+	links
+	{
+		"Sloth"
+	}
+
+	filter "system:windows"
+		staticruntime "On"
+		systemversion "latest"
+
+		defines
+		{
+			"SLTH_PLATFORM_WINDOWS"
+		}
+	
+		filter "configurations:Debug"
+			defines "SLTH_DEBUG"
+			buildoptions "/MDd"
+			symbols "on"
+
+		filter "configurations:Release"
+			defines "SLTH_Release"
+			buildoptions "/MD"
+			optimize "on"
+
+		filter "configurations:Dist"
+			defines "SLTH_DIST"
+			buildoptions "/MD"
+			optimize "on"
