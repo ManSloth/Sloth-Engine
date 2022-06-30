@@ -23,7 +23,11 @@ private:
 
 	Sloth::Ref<Sloth::Texture2D> m_Texture;
 	Sloth::Ref<Sloth::Texture2D> m_SpriteSheet;
-	Sloth::Ref<Sloth::SubTexture2D> m_TextureStairs;
+	Sloth::Ref<Sloth::SubTexture2D> m_Sprite0;
+	Sloth::Ref<Sloth::SubTexture2D> m_Sprite1;
 
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
+
+	uint32_t m_MapWidth, m_MapHeight;
+	std::unordered_map<char, Sloth::Ref<Sloth::SubTexture2D>> s_TextureMap;
 };
