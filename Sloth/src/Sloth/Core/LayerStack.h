@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sloth/Core/Core.h"
+#include "Sloth/Core/Base.h"
 #include "Layer.h"
 
 #include <vector>

@@ -23,7 +23,7 @@ static const char* s_MapTiles =
 ;
 
 Sandbox2D::Sandbox2D()
-	:Layer("Sandbox2D"), m_CameraController(1280.0f / 720.0f)
+	:Layer("Sandbox2D"), m_CameraController(1280.0f / 720.0f), m_SquareColor({ 0.2f, 0.3f, 0.8f, 1.0f })
 {
 
 }
@@ -107,9 +107,20 @@ void Sandbox2D::OnUpdate(Sloth::Timestep ts)
 				else
 					texture = m_Sprite0;
 
-				Sloth::Renderer2D::DrawQuad({ x - m_MapWidth / 2.0f, m_MapHeight - y - m_MapHeight / 2.0f, 0.5f }, { 1.0f, 1.0f }, texture);
+				Sloth::Renderer2D::DrawQuad({ x - m_MapWidth / 2.0f, m_MapHeight - y - m_MapHeight / 2.0f, -0.1f }, { 1.0f, 1.0f }, texture);
+				//Sloth::Renderer2D::DrawRotatedQuad({ x - m_MapWidth / 2.0f, m_MapHeight - y - m_MapHeight / 2.0f, -0.1f }, { 1.0f, 1.0f }, 45.0f, texture);
 			}
 		}
+
+		Sloth::Renderer2D::DrawQuad({ 0.0f, 0.0f }, { 0.5f, 0.75f }, m_SquareColor);
+
+		static float rotation = 0.0f;
+		rotation += ts * 50.0f;
+		Sloth::Renderer2D::DrawRotatedQuad({ 1.0f, 0.0f }, { 0.8f, 0.8f }, rotation, { 0.8f, 0.2f, 0.3f, 1.0f });
+		Sloth::Renderer2D::DrawRotatedQuad({ -2.5f, 0.0f, 0.0f }, { 1.0f, 1.0f }, -rotation, m_Texture, 20.0f);
+
+		Sloth::Renderer2D::DrawQuad({ 2.5f, 0.0f }, { 0.8f, 0.8f }, { 0.2f, 0.8f, 0.2f, 0.8f });
+		Sloth::Renderer2D::DrawQuad({ -4.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, m_Texture, 5.0f);
 
 		//Sloth::Renderer2D::DrawQuad({ 0.0f, 0.0f, 0.5f }, { 1.0f, 1.0f }, m_Sprite0);
 		//Sloth::Renderer2D::DrawQuad({ -1.0f, 0.0f, 0.5f }, { 1.0f, 1.0f }, m_Sprite1);

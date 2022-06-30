@@ -87,7 +87,7 @@
     <ClInclude Include="src\Sloth\Core\Application.h">
       <Filter>src\Sloth\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sloth\Core\Core.h">
+    <ClInclude Include="src\Sloth\Core\Base.h">
       <Filter>src\Sloth\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Core\EntryPoint.h">
@@ -109,6 +109,9 @@
       <Filter>src\Sloth\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Core\MouseButtonCodes.h">
+      <Filter>src\Sloth\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Core\MouseCodes.h">
       <Filter>src\Sloth\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Core\Timestep.h">
@@ -160,6 +163,9 @@
       <Filter>src\Sloth\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Renderer\Shader.h">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Renderer\SubTexture2D.h">
       <Filter>src\Sloth\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Renderer\Texture.h">
@@ -1419,8 +1425,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sloth\Core\MouseCodes.h" />
-    <ClInclude Include="src\Sloth\Renderer\SubTexture2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1450,6 +1454,9 @@
     <ClCompile Include="src\Sloth\Core\Application.cpp">
       <Filter>src\Sloth\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\Sloth\Core\Input.cpp">
+      <Filter>src\Sloth\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\Sloth\Core\Layer.cpp">
       <Filter>src\Sloth\Core</Filter>
     </ClCompile>
@@ -1457,6 +1464,9 @@
       <Filter>src\Sloth\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Sloth\Core\Log.cpp">
+      <Filter>src\Sloth\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Core\Window.cpp">
       <Filter>src\Sloth\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Sloth\ImGui\ImGuiBuild.cpp">
@@ -1492,6 +1502,9 @@
     <ClCompile Include="src\Sloth\Renderer\Shader.cpp">
       <Filter>src\Sloth\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Sloth\Renderer\SubTexture2D.cpp">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Sloth\Renderer\Texture.cpp">
       <Filter>src\Sloth\Renderer</Filter>
     </ClCompile>
@@ -1504,8 +1517,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sloth\Core\Input.cpp" />
-    <ClCompile Include="src\Sloth\Core\Window.cpp" />
-    <ClCompile Include="src\Sloth\Renderer\SubTexture2D.cpp" />
   </ItemGroup>
 </Project>

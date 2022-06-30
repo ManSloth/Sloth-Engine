@@ -57,7 +57,8 @@ project "Sloth"
 
 	defines
 	{
-		"_CRT_SECURE_NO_WARNINGS"
+		"_CRT_SECURE_NO_WARNINGS",
+		"GLFW_INCLUDE_NONE"
 	}
 
 	includedirs
@@ -84,9 +85,7 @@ project "Sloth"
 
 		defines
 		{
-			"SLTH_PLATFORM_WINDOWS",
-			"SLTH_BUILD_DLL",
-			"GLFW_INCLUDE_NONE"
+			"SLTH_PLATFORM_WINDOWS"
 		}
 
 		postbuildcommands

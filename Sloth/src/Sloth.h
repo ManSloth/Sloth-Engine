@@ -3,7 +3,7 @@
 // For use by Sloth applications
 
 //#include <stdio.h>
-#include "Sloth/Core/Core.h"
+#include "Sloth/Core/Base.h"
 
 #include "Sloth/Core/Application.h"
 #include "Sloth/Core/Layer.h"

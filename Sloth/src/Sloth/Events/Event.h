@@ -1,7 +1,7 @@
 #pragma once
 
 #include "slthpch.h"
-#include "Sloth/Core/Core.h"
+#include "Sloth/Core/Base.h"
 
 
 namespace Sloth {

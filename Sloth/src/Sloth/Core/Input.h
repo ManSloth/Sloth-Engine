@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sloth/Core/Core.h"
+#include "Sloth/Core/Base.h"
 #include "Sloth/Core/KeyCodes.h"
 #include "Sloth/Core/MouseCodes.h"
 
