@@ -23,6 +23,7 @@ IncludeDir["Glad"] = "Sloth/vendor/Glad/include"
 IncludeDir["ImGui"] = "Sloth/vendor/imgui"
 IncludeDir["glm"] = "Sloth/vendor/glm"
 IncludeDir["stb_image"] = "Sloth/vendor/stb_image"
+IncludeDir["entt"] = "Sloth/vendor/entt/include"
 
 group "Dependencies"
 
@@ -69,7 +70,8 @@ project "Sloth"
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb_image}"
+		"%{IncludeDir.stb_image}",
+		"%{IncludeDir.entt}"
 	}
 
 	links
@@ -182,7 +184,8 @@ project "Sloth-Editor"
 		"Sloth/vendor/spdlog/include", 
 		"Sloth/src",
 		"Sloth/vendor",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.entt}"
 	}
 
 	links

@@ -18,6 +18,9 @@
 
 #include "Sloth/ImGui/ImGuiLayer.h"
 
+#include "Sloth/Scene/Scene.h"
+#include "Sloth/Scene/Components.h"
+
 // --- Renderer --------------------------------------
 #include "Sloth/Renderer/Renderer.h"
 #include "Sloth/Renderer/Renderer2D.h"
