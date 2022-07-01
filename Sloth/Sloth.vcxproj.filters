@@ -1430,6 +1430,8 @@
     </ClInclude>
     <ClInclude Include="src\Sloth\Scene\Scene.h" />
     <ClInclude Include="src\Sloth\Scene\Components.h" />
+    <ClInclude Include="src\Sloth\Scene\Entity.h" />
+    <ClInclude Include="vendor\entt\include\entt.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1526,5 +1528,6 @@
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
     <ClCompile Include="src\Sloth\Scene\Scene.cpp" />
+    <ClCompile Include="src\Sloth\Scene\Entity.cpp" />
   </ItemGroup>
 </Project>

@@ -19,6 +19,7 @@
 #include "Sloth/ImGui/ImGuiLayer.h"
 
 #include "Sloth/Scene/Scene.h"
+#include "Sloth/Scene/Entity.h"
 #include "Sloth/Scene/Components.h"
 
 // --- Renderer --------------------------------------

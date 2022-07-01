@@ -197,8 +197,10 @@
     <ClInclude Include="src\Sloth\Renderer\Texture.h" />
     <ClInclude Include="src\Sloth\Renderer\VertexArray.h" />
     <ClInclude Include="src\Sloth\Scene\Components.h" />
+    <ClInclude Include="src\Sloth\Scene\Entity.h" />
     <ClInclude Include="src\Sloth\Scene\Scene.h" />
     <ClInclude Include="src\slthpch.h" />
+    <ClInclude Include="vendor\entt\include\entt.hpp" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_features.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_fixes.hpp" />
@@ -646,6 +648,7 @@
     <ClCompile Include="src\Sloth\Renderer\SubTexture2D.cpp" />
     <ClCompile Include="src\Sloth\Renderer\Texture.cpp" />
     <ClCompile Include="src\Sloth\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\Sloth\Scene\Entity.cpp" />
     <ClCompile Include="src\Sloth\Scene\Scene.cpp" />
     <ClCompile Include="src\slthpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
