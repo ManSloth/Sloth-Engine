@@ -71,6 +71,8 @@ namespace Sloth {
 		m_CameraEntity.AddComponent<NativeScriptComponent>().Bind<CameraController>();
 		m_SecondCamera.AddComponent<NativeScriptComponent>().Bind<CameraController>();
 
+		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+
 		m_Sprite0 = SubTexture2D::CreateFromCoords(m_SpriteSheet, { 14, 5 }, { 128, 128 });
 
 		m_CameraController.SetZoomLevel(5.0f);
@@ -183,6 +185,8 @@ namespace Sloth {
 			if (ImGui::BeginMenu("Help")) { ImGui::EndMenu(); }
 			ImGui::EndMenuBar();
 		}
+
+		m_SceneHierarchyPanel.OnImGuiRender();
 
 		ImGui::Begin("Settings");
 

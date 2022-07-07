@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Sloth.h"
+#include "Panels/SceneHierarchyPanel.h"
 
 namespace Sloth {
 
@@ -41,6 +42,9 @@ namespace Sloth {
 
 		bool m_ViewportFocused = false, m_ViewportHovered = false;
 		glm::vec2 m_ViewportSize { 0.0f, 0.0f };
+
+		// Panels
+		SceneHierarchyPanel m_SceneHierarchyPanel;
 
 		uint32_t m_MapWidth, m_MapHeight;
 		std::unordered_map<char, Ref<SubTexture2D>> s_TextureMap;
