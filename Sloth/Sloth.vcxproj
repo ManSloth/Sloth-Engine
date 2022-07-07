@@ -200,6 +200,7 @@
     <ClInclude Include="src\Sloth\Scene\Components.h" />
     <ClInclude Include="src\Sloth\Scene\Entity.h" />
     <ClInclude Include="src\Sloth\Scene\Scene.h" />
+    <ClInclude Include="src\Sloth\Scene\SceneCamera.h" />
     <ClInclude Include="src\slthpch.h" />
     <ClInclude Include="vendor\entt\include\entt.hpp" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -651,6 +652,7 @@
     <ClCompile Include="src\Sloth\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Sloth\Scene\Entity.cpp" />
     <ClCompile Include="src\Sloth\Scene\Scene.cpp" />
+    <ClCompile Include="src\Sloth\Scene\SceneCamera.cpp" />
     <ClCompile Include="src\slthpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

@@ -1433,6 +1433,7 @@
     <ClInclude Include="src\Sloth\Scene\Entity.h" />
     <ClInclude Include="vendor\entt\include\entt.hpp" />
     <ClInclude Include="src\Sloth\Renderer\Camera.h" />
+    <ClInclude Include="src\Sloth\Scene\SceneCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1530,5 +1531,6 @@
     </ClCompile>
     <ClCompile Include="src\Sloth\Scene\Scene.cpp" />
     <ClCompile Include="src\Sloth\Scene\Entity.cpp" />
+    <ClCompile Include="src\Sloth\Scene\SceneCamera.cpp" />
   </ItemGroup>
 </Project>
