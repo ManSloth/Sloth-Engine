@@ -44,6 +44,8 @@ namespace Sloth {
 		public:
 			void OnCreate()
 			{
+				auto& transform = GetComponent<TransformComponent>().Transform;
+				transform[3][0] = rand() % 10 - 5.0f;
 			}
 
 			void OnDestroy()
@@ -67,7 +69,7 @@ namespace Sloth {
 		};
 
 		m_CameraEntity.AddComponent<NativeScriptComponent>().Bind<CameraController>();
-		//m_Sprite1 = SubTexture2D::CreateFromCoords(m_SpriteSheet, { 0, 11 }, { 128, 128 });
+		m_SecondCamera.AddComponent<NativeScriptComponent>().Bind<CameraController>();
 
 		m_Sprite0 = SubTexture2D::CreateFromCoords(m_SpriteSheet, { 14, 5 }, { 128, 128 });
 
