@@ -1432,6 +1432,7 @@
     <ClInclude Include="src\Sloth\Scene\Components.h" />
     <ClInclude Include="src\Sloth\Scene\Entity.h" />
     <ClInclude Include="vendor\entt\include\entt.hpp" />
+    <ClInclude Include="src\Sloth\Renderer\Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">

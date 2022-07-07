@@ -2,6 +2,8 @@
 
 #include <glm/glm.hpp>
 
+#include "Sloth/Renderer/Camera.h"
+
 namespace Sloth {
 
 	struct TagComponent
@@ -35,6 +37,17 @@ namespace Sloth {
 		SpriteRendererComponent(const SpriteRendererComponent&) = default;
 		SpriteRendererComponent(const glm::vec4& color)
 			: Color(color) {}
+	};
+
+	struct CameraComponent
+	{
+		Sloth::Camera Camera;
+		bool Primary = true;
+
+		CameraComponent() = default;
+		CameraComponent(const CameraComponent&) = default;
+		CameraComponent(const glm::mat4& projection)
+			: Camera(projection) {}
 	};
 
 }
