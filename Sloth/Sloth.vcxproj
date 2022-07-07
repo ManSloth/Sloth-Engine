@@ -201,6 +201,7 @@
     <ClInclude Include="src\Sloth\Scene\Entity.h" />
     <ClInclude Include="src\Sloth\Scene\Scene.h" />
     <ClInclude Include="src\Sloth\Scene\SceneCamera.h" />
+    <ClInclude Include="src\Sloth\Scene\ScriptableEntity.h" />
     <ClInclude Include="src\slthpch.h" />
     <ClInclude Include="vendor\entt\include\entt.hpp" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />

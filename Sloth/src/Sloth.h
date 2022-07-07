@@ -20,6 +20,7 @@
 
 #include "Sloth/Scene/Scene.h"
 #include "Sloth/Scene/Entity.h"
+#include "Sloth/Scene/ScriptableEntity.h"
 #include "Sloth/Scene/Components.h"
 
 // --- Renderer --------------------------------------
