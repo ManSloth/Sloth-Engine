@@ -2,7 +2,7 @@ The Sloth Engine is a 2D video game engine that I'm currently building. I enjoye
 
 It will have full Entitys to be able to manipulate in the scene how ever you want with transforms, sprites, hitboxes, etc. Anything you would need in a 2D game engine.
 
-![Screenshot1](https://user-images.githubusercontent.com/70006814/177535575-129c14b3-2c48-4f88-880c-87e9505b3338.png)
+![Screenshot3](https://user-images.githubusercontent.com/70006814/177954757-85641bbd-5523-40fe-b698-96593f7f252d.png)
 
 It even has fully dockable windows for easy work space manipulation
 
