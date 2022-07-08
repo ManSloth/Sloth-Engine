@@ -31,6 +31,9 @@
     <Filter Include="src\Sloth\Renderer">
       <UniqueIdentifier>{2CA392DE-1887-5334-81E7-4D876DEA3DB6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Sloth\Scene">
+      <UniqueIdentifier>{638AF23D-CF15-6002-D826-E3F64431BC02}</UniqueIdentifier>
+    </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
     </Filter>
@@ -141,6 +144,9 @@
     <ClInclude Include="src\Sloth\Renderer\Buffer.h">
       <Filter>src\Sloth\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sloth\Renderer\Camera.h">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Sloth\Renderer\Framebuffer.h">
       <Filter>src\Sloth\Renderer</Filter>
     </ClInclude>
@@ -176,6 +182,21 @@
     </ClInclude>
     <ClInclude Include="src\Sloth\Renderer\VertexArray.h">
       <Filter>src\Sloth\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Scene\Components.h">
+      <Filter>src\Sloth\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Scene\Entity.h">
+      <Filter>src\Sloth\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Scene\Scene.h">
+      <Filter>src\Sloth\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Scene\SceneCamera.h">
+      <Filter>src\Sloth\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Scene\ScriptableEntity.h">
+      <Filter>src\Sloth\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\slthpch.h">
       <Filter>src</Filter>
@@ -1428,13 +1449,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sloth\Scene\Scene.h" />
-    <ClInclude Include="src\Sloth\Scene\Components.h" />
-    <ClInclude Include="src\Sloth\Scene\Entity.h" />
-    <ClInclude Include="vendor\entt\include\entt.hpp" />
-    <ClInclude Include="src\Sloth\Renderer\Camera.h" />
-    <ClInclude Include="src\Sloth\Scene\SceneCamera.h" />
-    <ClInclude Include="src\Sloth\Scene\ScriptableEntity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1524,14 +1538,20 @@
     <ClCompile Include="src\Sloth\Renderer\VertexArray.cpp">
       <Filter>src\Sloth\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Sloth\Scene\Entity.cpp">
+      <Filter>src\Sloth\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Scene\Scene.cpp">
+      <Filter>src\Sloth\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Scene\SceneCamera.cpp">
+      <Filter>src\Sloth\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="src\slthpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sloth\Scene\Scene.cpp" />
-    <ClCompile Include="src\Sloth\Scene\Entity.cpp" />
-    <ClCompile Include="src\Sloth\Scene\SceneCamera.cpp" />
   </ItemGroup>
 </Project>
