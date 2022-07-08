@@ -204,6 +204,7 @@
     <ClInclude Include="src\Sloth\Scene\SceneSerializer.h" />
     <ClInclude Include="src\Sloth\Scene\ScriptableEntity.h" />
     <ClInclude Include="src\slthpch.h" />
+    <ClInclude Include="src\Sloth\Utils\PlatformUtils.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_features.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_fixes.hpp" />
@@ -658,6 +659,7 @@
     <ClCompile Include="src\slthpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Sloth\Utils\WindowsPlatformUtils.cpp" />
     <ClCompile Include="vendor\stb_image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>

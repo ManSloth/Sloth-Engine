@@ -14,9 +14,15 @@ namespace Sloth {
 		virtual void OnAttach() override;
 		virtual void OnDetach() override;
 		virtual void OnEvent(Event& e) override;
-
 		void OnUpdate(Timestep ts) override;
 		virtual void OnImGuiRender() override;
+	private:
+		bool OnKeyPressed(KeyPressedEvent& e);
+
+		void NewScene();
+		void OpenScene();
+		void SaveSceneAs();
+
 		
 	private:
 		OrthographicCameraController m_CameraController;
