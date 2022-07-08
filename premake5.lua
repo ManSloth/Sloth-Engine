@@ -24,12 +24,14 @@ IncludeDir["ImGui"] = "Sloth/vendor/imgui"
 IncludeDir["glm"] = "Sloth/vendor/glm"
 IncludeDir["stb_image"] = "Sloth/vendor/stb_image"
 IncludeDir["entt"] = "Sloth/vendor/entt/include"
+IncludeDir["yaml_cpp"] = "%{wks.location}/Sloth/vendor/yaml-cpp/include"
 
 group "Dependencies"
 
-include "Sloth/vendor/GLFW"
-include "Sloth/vendor/Glad"
-include "Sloth/vendor/imgui"
+	include "Sloth/vendor/GLFW"
+	include "Sloth/vendor/Glad"
+	include "Sloth/vendor/imgui"
+	include "Sloth/vendor/yaml-cpp"
 
 group ""
 
@@ -71,7 +73,8 @@ project "Sloth"
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.stb_image}",
-		"%{IncludeDir.entt}"
+		"%{IncludeDir.entt}",
+		"%{IncludeDir.yaml_cpp}"
 	}
 
 	links
@@ -79,6 +82,7 @@ project "Sloth"
 		"GLFW",
 		"Glad",
 		"ImGui",
+		"yaml-cpp",
 		"opengl32.lib"
 	}
 

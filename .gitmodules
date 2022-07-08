@@ -10,3 +10,6 @@
 [submodule "Sloth/vendor/glm"]
 	path = Sloth/vendor/glm
 	url = https://github.com/g-truc/glm
+[submodule "Sloth/vendor/yaml-cpp"]
+	path = Sloth/vendor/yaml-cpp
+	url = https://github.com/thecherno/yaml-cpp

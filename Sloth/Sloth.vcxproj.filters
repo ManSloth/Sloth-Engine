@@ -195,6 +195,9 @@
     <ClInclude Include="src\Sloth\Scene\SceneCamera.h">
       <Filter>src\Sloth\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sloth\Scene\SceneSerializer.h">
+      <Filter>src\Sloth\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="src\Sloth\Scene\ScriptableEntity.h">
       <Filter>src\Sloth\Scene</Filter>
     </ClInclude>
@@ -1545,6 +1548,9 @@
       <Filter>src\Sloth\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\Sloth\Scene\SceneCamera.cpp">
+      <Filter>src\Sloth\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Scene\SceneSerializer.cpp">
       <Filter>src\Sloth\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\slthpch.cpp">

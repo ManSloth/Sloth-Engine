@@ -4,6 +4,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Sloth/Scene/SceneSerializer.h"
+
 namespace Sloth {
 
 	EditorLayer::EditorLayer()
@@ -26,6 +28,7 @@ namespace Sloth {
 
 		m_ActiveScene = CreateRef<Scene>();
 
+#if 0
 		// Entity
 		auto square = m_ActiveScene->CreateEntity("Square");
 		square.AddComponent<SpriteRendererComponent>(glm::vec4{ 0.0f, 1.0f, 0.0f, 1.0f });
@@ -73,12 +76,13 @@ namespace Sloth {
 
 		m_CameraEntity.AddComponent<NativeScriptComponent>().Bind<CameraController>();
 		m_SecondCamera.AddComponent<NativeScriptComponent>().Bind<CameraController>();
+#endif
 
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
 
-		m_Sprite0 = SubTexture2D::CreateFromCoords(m_SpriteSheet, { 14, 5 }, { 128, 128 });
+		//m_Sprite0 = SubTexture2D::CreateFromCoords(m_SpriteSheet, { 14, 5 }, { 128, 128 });
 
-		m_CameraController.SetZoomLevel(5.0f);
+		//m_CameraController.SetZoomLevel(5.0f);
 	}
 
 	void EditorLayer::OnDetach()
@@ -182,9 +186,20 @@ namespace Sloth {
 				// Disabling fullscreen would allow the window to be moved to the front of other windows, 
 				// which we can't undo at the moment without finer window depth/z control.
 				//ImGui::MenuItem("Fullscreen", NULL, &opt_fullscreen_persistant);
-				if (ImGui::MenuItem("Open...")) {} // TODO
-				if (ImGui::MenuItem("Save...")) {} // TODO
-				if (ImGui::MenuItem("Save As...")) {} // TODO
+				if (ImGui::MenuItem("Save Scene"))
+				{
+					SceneSerializer serializer(m_ActiveScene);
+					serializer.Serialize("assets/scenes/Example.sloth");
+				}
+
+				if (ImGui::MenuItem("Load Scene"))
+				{
+					SceneSerializer serializer(m_ActiveScene);
+					serializer.Deserialize("assets/scenes/Example.sloth");
+				}
+				//if (ImGui::MenuItem("Open...")) {} // TODO
+				//if (ImGui::MenuItem("Save...")) {} // TODO
+				//if (ImGui::MenuItem("Save As...")) {} // TODO
 				if (ImGui::MenuItem("Exit")) Application::Get().Close();
 				ImGui::EndMenu();
 			}
