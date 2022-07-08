@@ -4,25 +4,34 @@ Entities:
     TagComponent:
       Tag: Blue Square
     TransformComponent:
-      Translation: [-0.200000003, 0, -4.9000001]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
+      Translation: [3.20000005, 4.0999999, 0]
+      Rotation: [-0.776671529, 0, 0.785398185]
+      Scale: [4, 4, 1]
     SpriteRendererComponent:
-      Color: [0.0965996459, 0.60336858, 0.833976865, 1]
+      Color: [0, 0.708397269, 0.833976865, 1]
+  - Entity: 12837192831273
+    TagComponent:
+      Tag: Yellow Square
+    TransformComponent:
+      Translation: [-3.29999995, 2.70000005, 7.30000019]
+      Rotation: [0, 0, 0.37000981]
+      Scale: [3.20000005, 1, 1]
+    SpriteRendererComponent:
+      Color: [0.774572194, 0.849420846, 0.00655924482, 1]
   - Entity: 12837192831273
     TagComponent:
       Tag: Red Square
     TransformComponent:
-      Translation: [-0.600000024, 0, 0]
+      Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     SpriteRendererComponent:
-      Color: [1, 0, 0, 0.423529416]
+      Color: [0.583011627, 0, 0, 1]
   - Entity: 12837192831273
     TagComponent:
       Tag: Camera
     TransformComponent:
-      Translation: [0, 0, 10.6999998]
+      Translation: [0, 0, 22.2999992]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     CameraComponent:

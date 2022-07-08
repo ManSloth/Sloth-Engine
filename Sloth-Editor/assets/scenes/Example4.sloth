@@ -2,6 +2,24 @@ Scene: Untitled
 Entities:
   - Entity: 12837192831273
     TagComponent:
+      Tag: Yellow Square
+    TransformComponent:
+      Translation: [0.200000003, 0, -7.80000019]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [0.737451732, 0.700436771, 0, 1]
+  - Entity: 12837192831273
+    TagComponent:
+      Tag: Green Square
+    TransformComponent:
+      Translation: [-1.29999995, 0, -1.20000005]
+      Rotation: [0, 0, 0]
+      Scale: [1, 2.9000001, 1]
+    SpriteRendererComponent:
+      Color: [0.122913875, 0.67181468, 0.0285326764, 1]
+  - Entity: 12837192831273
+    TagComponent:
       Tag: Blue Square
     TransformComponent:
       Translation: [-0.200000003, 0, -4.9000001]
@@ -13,7 +31,7 @@ Entities:
     TagComponent:
       Tag: Red Square
     TransformComponent:
-      Translation: [3, 0, 0]
+      Translation: [-0.600000024, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     SpriteRendererComponent:
