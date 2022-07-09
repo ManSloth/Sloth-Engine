@@ -12,7 +12,7 @@ namespace Sloth {
 	{
 	public:
 		SlothEditor()
-			: Application("Sloth Editor")
+			: Application("Sloth Editor - [Untitled]* ")
 		{
 			//PushLayer(new ExampleLayer());
 			PushLayer(new EditorLayer());

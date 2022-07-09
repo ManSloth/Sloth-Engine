@@ -25,6 +25,8 @@ namespace Sloth {
 		bool IsVSync() const override;
 
 		virtual void* GetNativeWindow() const { return m_Window; }
+
+		void SetWindowTitle(char* title) override;
 	private:
 		virtual void Init(const WindowProps & props);
 		virtual void Shutdown();

@@ -39,6 +39,8 @@ namespace Sloth {
 
 		virtual void* GetNativeWindow() const = 0;
 
+		virtual void SetWindowTitle(char* title) = 0;
+
 		static Scope<Window> Create(const WindowProps& props = WindowProps());
 	};
 }

@@ -13,3 +13,6 @@
 [submodule "Sloth/vendor/yaml-cpp"]
 	path = Sloth/vendor/yaml-cpp
 	url = https://github.com/thecherno/yaml-cpp
+[submodule "Sloth/vendor/ImGuizmo"]
+	path = Sloth/vendor/ImGuizmo
+	url = https://github.com/thecherno/imguizmo

@@ -28,14 +28,23 @@
     <Filter Include="src\Sloth\ImGui">
       <UniqueIdentifier>{7092423D-DC1D-B001-E52E-33F651390C02}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Sloth\Math">
+      <UniqueIdentifier>{5FF1A628-4BBF-9A2E-3453-0B5520C07693}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Sloth\Renderer">
       <UniqueIdentifier>{2CA392DE-1887-5334-81E7-4D876DEA3DB6}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Sloth\Scene">
       <UniqueIdentifier>{638AF23D-CF15-6002-D826-E3F64431BC02}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Sloth\Utils">
+      <UniqueIdentifier>{A61E203E-12AA-8D02-1BBB-10F787C5E902}</UniqueIdentifier>
+    </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\ImGuizmo">
+      <UniqueIdentifier>{73BF7F4C-DF4A-ED10-E85B-700554664911}</UniqueIdentifier>
     </Filter>
     <Filter Include="vendor\glm">
       <UniqueIdentifier>{829FC5A8-6E57-07F6-D75E-E051C335A2E6}</UniqueIdentifier>
@@ -141,6 +150,9 @@
     <ClInclude Include="src\Sloth\ImGui\ImGuiLayer.h">
       <Filter>src\Sloth\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sloth\Math\Math.h">
+      <Filter>src\Sloth\Math</Filter>
+    </ClInclude>
     <ClInclude Include="src\Sloth\Renderer\Buffer.h">
       <Filter>src\Sloth\Renderer</Filter>
     </ClInclude>
@@ -201,8 +213,14 @@
     <ClInclude Include="src\Sloth\Scene\ScriptableEntity.h">
       <Filter>src\Sloth\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sloth\Utils\PlatformUtils.h">
+      <Filter>src\Sloth\Utils</Filter>
+    </ClInclude>
     <ClInclude Include="src\slthpch.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\ImGuizmo\ImGuizmo.h">
+      <Filter>vendor\ImGuizmo</Filter>
     </ClInclude>
     <ClInclude Include="vendor\glm\glm\common.hpp">
       <Filter>vendor\glm\glm</Filter>
@@ -1452,7 +1470,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sloth\Utils\PlatformUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1502,6 +1519,9 @@
     </ClCompile>
     <ClCompile Include="src\Sloth\ImGui\ImGuiLayer.cpp">
       <Filter>src\Sloth\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Math\Math.cpp">
+      <Filter>src\Sloth\Math</Filter>
     </ClCompile>
     <ClCompile Include="src\Sloth\Renderer\Buffer.cpp">
       <Filter>src\Sloth\Renderer</Filter>
@@ -1554,12 +1574,17 @@
     <ClCompile Include="src\Sloth\Scene\SceneSerializer.cpp">
       <Filter>src\Sloth\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\Sloth\Utils\WindowsPlatformUtils.cpp">
+      <Filter>src\Sloth\Utils</Filter>
+    </ClCompile>
     <ClCompile Include="src\slthpch.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\ImGuizmo\ImGuizmo.cpp">
+      <Filter>vendor\ImGuizmo</Filter>
     </ClCompile>
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sloth\Utils\WindowsPlatformUtils.cpp" />
   </ItemGroup>
 </Project>

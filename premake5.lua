@@ -25,6 +25,7 @@ IncludeDir["glm"] = "Sloth/vendor/glm"
 IncludeDir["stb_image"] = "Sloth/vendor/stb_image"
 IncludeDir["entt"] = "Sloth/vendor/entt/include"
 IncludeDir["yaml_cpp"] = "%{wks.location}/Sloth/vendor/yaml-cpp/include"
+IncludeDir["ImGuizmo"] = "%{wks.location}/Sloth/vendor/ImGuizmo"
 
 group "Dependencies"
 
@@ -55,7 +56,10 @@ project "Sloth"
 		"%{prj.name}/vendor/stb_image/**.h",
 		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
-		"%{prj.name}/vendor/glm/glm/**.inl"
+		"%{prj.name}/vendor/glm/glm/**.inl",
+
+		"%{prj.name}/vendor/ImGuizmo/ImGuizmo.h",
+		"%{prj.name}/vendor/ImGuizmo/ImGuizmo.cpp"
 	}
 
 	defines
@@ -74,7 +78,8 @@ project "Sloth"
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.stb_image}",
 		"%{IncludeDir.entt}",
-		"%{IncludeDir.yaml_cpp}"
+		"%{IncludeDir.yaml_cpp}",
+		"%{IncludeDir.ImGuizmo}"
 	}
 
 	links
@@ -85,6 +90,9 @@ project "Sloth"
 		"yaml-cpp",
 		"opengl32.lib"
 	}
+
+	filter "files:Sloth/vendor/ImGuizmo/**.cpp"
+	flags { "NoPCH" }
 
 	filter "system:windows"
 		systemversion "latest"
@@ -189,7 +197,8 @@ project "Sloth-Editor"
 		"Sloth/src",
 		"Sloth/vendor",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.entt}"
+		"%{IncludeDir.entt}",
+		"%{IncludeDir.ImGuizmo}"
 	}
 
 	links
