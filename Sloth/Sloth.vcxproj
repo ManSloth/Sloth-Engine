@@ -186,6 +186,7 @@
     <ClInclude Include="src\Sloth\Math\Math.h" />
     <ClInclude Include="src\Sloth\Renderer\Buffer.h" />
     <ClInclude Include="src\Sloth\Renderer\Camera.h" />
+    <ClInclude Include="src\Sloth\Renderer\EditorCamera.h" />
     <ClInclude Include="src\Sloth\Renderer\Framebuffer.h" />
     <ClInclude Include="src\Sloth\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Sloth\Renderer\OrthographicCamera.h" />
@@ -643,6 +644,7 @@
     <ClCompile Include="src\Sloth\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Sloth\Math\Math.cpp" />
     <ClCompile Include="src\Sloth\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Sloth\Renderer\EditorCamera.cpp" />
     <ClCompile Include="src\Sloth\Renderer\Framebuffer.cpp" />
     <ClCompile Include="src\Sloth\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\Sloth\Renderer\OrthographicCamera.cpp" />

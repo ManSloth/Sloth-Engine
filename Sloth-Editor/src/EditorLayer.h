@@ -3,6 +3,8 @@
 #include "Sloth.h"
 #include "Panels/SceneHierarchyPanel.h"
 
+#include "Sloth/Renderer/EditorCamera.h"
+
 
 namespace Sloth {
 
@@ -39,6 +41,8 @@ namespace Sloth {
 		Entity m_SecondCamera;
 
 		bool m_PrimaryCamera = true;
+
+		EditorCamera m_EditorCamera;
 
 		Ref<Texture2D> m_Texture;
 		Ref<Texture2D> m_SpriteSheet;
