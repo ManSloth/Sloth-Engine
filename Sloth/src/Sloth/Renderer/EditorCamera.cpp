@@ -24,9 +24,10 @@ namespace Sloth {
 		m_Projection = glm::perspective(glm::radians(m_FOV), m_AspectRatio, m_NearClip, m_FarClip);
 	}
 
-	void EditorCamera::UpdateView()
+	void EditorCamera::UpdateView(bool editor2D)
 	{
-		// m_Yaw = m_Pitch = 0.0f; // Lock the camera's rotation
+		if (editor2D)
+			m_Yaw = m_Pitch = 0.0f; // Lock the camera's rotation
 		m_Position = CalculatePosition();
 
 		glm::quat orientation = GetOrientation();
@@ -59,7 +60,7 @@ namespace Sloth {
 		return speed;
 	}
 
-	void EditorCamera::OnUpdate(Timestep ts)
+	void EditorCamera::OnUpdate(Timestep ts, bool editor2D)
 	{
 		if (Input::IsKeyPressed(Key::LeftAlt))
 		{
@@ -78,7 +79,7 @@ namespace Sloth {
 		if (Input::IsKeyPressed(Key::RightAlt))
 			ResetPosition();
 
-		UpdateView();
+		UpdateView(editor2D);
 	}
 
 	void EditorCamera::OnEvent(Event& e)

@@ -15,7 +15,7 @@ namespace Sloth {
 		EditorCamera() = default;
 		EditorCamera(float fov, float aspectRatio, float nearClip, float farClip);
 
-		void OnUpdate(Timestep ts);
+		void OnUpdate(Timestep ts, bool editor2D);
 		void OnEvent(Event& e);
 
 		inline float GetDistance() const { return m_Distance; }
@@ -36,7 +36,7 @@ namespace Sloth {
 		float GetYaw() const { return m_Yaw; }
 	private:
 		void UpdateProjection();
-		void UpdateView();
+		void UpdateView(bool editor2D =  true);
 
 		bool OnMouseScroll(MouseScrolledEvent& e);
 

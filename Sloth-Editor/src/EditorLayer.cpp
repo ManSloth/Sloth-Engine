@@ -104,7 +104,6 @@ namespace Sloth {
 	void EditorLayer::OnUpdate(Timestep ts)
 	{
 		SLTH_PROFILE_FUNCTION();
-
 		// Resize
 		if (FramebufferSpecification spec = m_Framebuffer->GetSpecification();
 			m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && // zero sized framebuffer is invalid
@@ -121,7 +120,7 @@ namespace Sloth {
 		if (m_ViewportFocused)
 			m_CameraController.OnUpdate(ts); 
 
-		m_EditorCamera.OnUpdate(ts);
+		m_EditorCamera.OnUpdate(ts, m_editor2D);
 
 		// Render
 		Renderer2D::ResetStats();
@@ -230,6 +229,32 @@ namespace Sloth {
 		ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
 
 		ImGui::End();
+
+		ImGui::Begin("Settings");
+		ImVec2 buttonSize = { 30.0f, 30.0f };
+		if (m_editor2D)
+		{
+			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.15f, 0.1505f, 0.151f, 1.0f });
+			ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.15f, 0.1505f, 0.151f, 1.0f });
+			ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.2f, 0.205f, 0.21f, 1.0f });
+		}
+		else
+		{
+			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.3f, 0.305f, 0.31f, 1.0f });
+			ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.15f, 0.1505f, 0.151f, 1.0f });
+			ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.35f, 0.355f, 0.36f, 1.0f });
+		}
+
+		if (ImGui::Button("2D", buttonSize))
+		{
+			if (!m_editor2D)
+				m_editor2D = true;
+			else
+				m_editor2D = false;
+		}
+		ImGui::PopStyleColor(3);
+		ImGui::End();
+
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0, 0 });
 		ImGui::Begin("Viewport");
