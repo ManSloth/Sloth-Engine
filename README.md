@@ -4,6 +4,9 @@ It will have full Entitys to be able to manipulate in the scene how ever you wan
 
 ![Screenshot3](https://user-images.githubusercontent.com/70006814/177954757-85641bbd-5523-40fe-b698-96593f7f252d.png)
 
+Gizmos for easy transforms
+![Screenshot4](https://user-images.githubusercontent.com/70006814/178101814-f98ef242-bce9-4ca9-8a58-265b2c735b3b.png)
+
 It even has fully dockable windows for easy work space manipulation
 
 ![Screenshot2](https://user-images.githubusercontent.com/70006814/177535581-117a908e-9555-45d4-a3bf-a28ce8096070.png)
