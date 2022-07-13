@@ -36,7 +36,7 @@ namespace Sloth {
 		float GetYaw() const { return m_Yaw; }
 	private:
 		void UpdateProjection();
-		void UpdateView(bool editor2D =  true);
+		void UpdateView();
 
 		bool OnMouseScroll(MouseScrolledEvent& e);
 
@@ -64,6 +64,8 @@ namespace Sloth {
 		float m_Pitch = 0.0f, m_Yaw = 0.0f;
 
 		float m_ViewportWidth = 1280, m_ViewportHeight = 720;
+
+		bool m_editor2D = true;
 	};
 
 }

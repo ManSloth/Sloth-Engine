@@ -24,9 +24,9 @@ namespace Sloth {
 		m_Projection = glm::perspective(glm::radians(m_FOV), m_AspectRatio, m_NearClip, m_FarClip);
 	}
 
-	void EditorCamera::UpdateView(bool editor2D)
+	void EditorCamera::UpdateView()
 	{
-		if (editor2D)
+		if (m_editor2D)
 			m_Yaw = m_Pitch = 0.0f; // Lock the camera's rotation
 		m_Position = CalculatePosition();
 
@@ -62,6 +62,7 @@ namespace Sloth {
 
 	void EditorCamera::OnUpdate(Timestep ts, bool editor2D)
 	{
+		m_editor2D = editor2D;
 		if (Input::IsKeyPressed(Key::LeftAlt))
 		{
 			const glm::vec2& mouse{ Input::GetMouseX(), Input::GetMouseY() };
@@ -79,7 +80,7 @@ namespace Sloth {
 		if (Input::IsKeyPressed(Key::RightAlt))
 			ResetPosition();
 
-		UpdateView(editor2D);
+		UpdateView();
 	}
 
 	void EditorCamera::OnEvent(Event& e)
