@@ -2,7 +2,7 @@ Scene: Untitled
 Entities:
   - Entity: 12837192831273
     TagComponent:
-      Tag: Empty GameObject
+      Tag: Z Square
     TransformComponent:
       Translation: [7.12010241, 5.8815403, -6.91374922]
       Rotation: [0.397810906, 0.115394548, 1.11943758]
@@ -11,7 +11,7 @@ Entities:
       Color: [0, 0.617760658, 1, 1]
   - Entity: 12837192831273
     TagComponent:
-      Tag: Empty GameObject
+      Tag: Red Square
     TransformComponent:
       Translation: [-6.48379135, 0, 0]
       Rotation: [0, 0, 0]
