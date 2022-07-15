@@ -242,7 +242,12 @@ namespace Sloth {
 		std::string name = "None";
 		if (m_HoveredEntity)
 			name = m_HoveredEntity.GetComponent<TagComponent>().Tag;
-		ImGui::Text("Hovered Entity: %s", name.c_str());
+		ImGui::Text("Hovered Object: %s", name.c_str());
+		ImGui::Text("Viewport Hovered: %d", m_ViewportHovered);
+		ImGui::Text("Viewport Focused: %d", m_ViewportFocused);
+		ImGui::Text("Mouse Down: %d", m_LeftMouseDown);
+		ImGui::Text("Can Click Gizmo: %d", m_CanClickGizmo);
+		ImGui::Text("Gizmo: %d", ImGuizmo::IsOver());
 
 		auto stats = Renderer2D::GetStats();
 		ImGui::Text("Renderer2D Stats:");
@@ -290,12 +295,15 @@ namespace Sloth {
 		m_ViewportFocused = ImGui::IsWindowFocused();
 		m_ViewportHovered = ImGui::IsWindowHovered();
 		Application::Get().GetImGuiLayer()->BlockEvents(!m_ViewportFocused && !m_ViewportHovered);
-
 		ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
 		m_ViewportSize = { viewportPanelSize.x, viewportPanelSize.y };
 
 		uint32_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
 		ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+
+		// Disable ImGuizmo::IsOver if clicking outside of viewport or else it stays true until an object is selected from the hierarchy
+		if (!m_ViewportFocused)
+			ImGuizmo::NotOver();
 
 		// Gizmos
 		Entity selectedEntity = m_SceneHierarchyPanel.GetSelectedEntity();
@@ -329,21 +337,23 @@ namespace Sloth {
 
 			float snapValues[3] = { snapValue, snapValue, snapValue };
 
-			ImGuizmo::Manipulate(glm::value_ptr(cameraView), glm::value_ptr(cameraProjection),
-				(ImGuizmo::OPERATION)m_GizmoType, ImGuizmo::LOCAL, glm::value_ptr(transform),
-				nullptr, snap ? snapValues : nullptr);
+				ImGuizmo::Manipulate(glm::value_ptr(cameraView), glm::value_ptr(cameraProjection),
+					(ImGuizmo::OPERATION)m_GizmoType, ImGuizmo::LOCAL, glm::value_ptr(transform),
+					nullptr, snap ? snapValues : nullptr);
 
-			if (ImGuizmo::IsUsing())
+			if (ImGuizmo::IsUsing() && m_CanClickGizmo)
 			{
 				glm::vec3 translation, rotation, scale;
 				Math::DecomposeTransform(transform, translation, rotation, scale);
 
-				glm::vec3 deltaRotation = rotation - tc.Rotation;
+				glm::vec3 deltaRotation = rotation  - tc.Rotation;
 				tc.Translation = translation;
 				tc.Rotation += deltaRotation;
 				tc.Scale = scale;
 			}
 		}
+
+
 
 		ImGui::End();
 		ImGui::PopStyleVar();
@@ -359,6 +369,7 @@ namespace Sloth {
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<KeyPressedEvent>(SLTH_BIND_EVENT_FN(EditorLayer::OnKeyPressed));
 		dispatcher.Dispatch<MouseButtonPressedEvent>(SLTH_BIND_EVENT_FN(EditorLayer::OnMouseButtonPressed));
+		dispatcher.Dispatch<MouseButtonReleasedEvent>(SLTH_BIND_EVENT_FN(EditorLayer::OnMouseButtonReleased));
 	}
 
 	bool EditorLayer::OnKeyPressed(KeyPressedEvent& e)
@@ -392,6 +403,7 @@ namespace Sloth {
 
 				break;
 			}
+
 			// Gizmos
 			case Key::Q:
 			{
@@ -417,6 +429,7 @@ namespace Sloth {
 					m_GizmoType = ImGuizmo::OPERATION::SCALE;
 				break;
 			}
+
 		}
 	}
 
@@ -425,7 +438,20 @@ namespace Sloth {
 		if (e.GetMouseButton() == Mouse::ButtonLeft)
 		{
 			if (m_ViewportHovered && !ImGuizmo::IsOver() && !Input::IsKeyPressed(Key::LeftAlt))
+			{
 				m_SceneHierarchyPanel.SetSelectedEntity(m_HoveredEntity);
+				m_CanClickGizmo = false;
+			}
+
+		}
+		return false;
+	}
+
+	bool EditorLayer::OnMouseButtonReleased(MouseButtonReleasedEvent& e)
+	{
+		if (e.GetMouseButton() == Mouse::ButtonLeft)
+		{
+			m_CanClickGizmo = true;
 		}
 		return false;
 	}

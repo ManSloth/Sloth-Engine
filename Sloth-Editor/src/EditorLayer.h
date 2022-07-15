@@ -22,6 +22,7 @@ namespace Sloth {
 	private:
 		bool OnKeyPressed(KeyPressedEvent& e);
 		bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
+		bool OnMouseButtonReleased(MouseButtonReleasedEvent& e);
 
 		void NewScene();
 		void OpenScene();
@@ -56,6 +57,8 @@ namespace Sloth {
 		int m_GizmoType = -1;
 
 		bool m_editor2D = false;
+		bool m_LeftMouseDown = false;
+		bool m_CanClickGizmo = false;
 
 
 		// Panels
