@@ -341,7 +341,7 @@ namespace Sloth {
 					(ImGuizmo::OPERATION)m_GizmoType, ImGuizmo::LOCAL, glm::value_ptr(transform),
 					nullptr, snap ? snapValues : nullptr);
 
-			if (ImGuizmo::IsUsing() && m_CanClickGizmo)
+			if (ImGuizmo::IsUsing() && m_CanClickGizmo && !Input::IsKeyPressed(Key::LeftAlt))
 			{
 				glm::vec3 translation, rotation, scale;
 				Math::DecomposeTransform(transform, translation, rotation, scale);
