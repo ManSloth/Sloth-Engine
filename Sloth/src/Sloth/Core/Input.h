@@ -1,8 +1,9 @@
 #pragma once
 
-#include "Sloth/Core/Base.h"
+#include <glm/glm.hpp>
 #include "Sloth/Core/KeyCodes.h"
 #include "Sloth/Core/MouseCodes.h"
+
 
 namespace Sloth {
 	

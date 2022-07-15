@@ -1,5 +1,6 @@
+
 #include "slthpch.h"
-#include "OpenGLShader.h"
+#include "Platform/OpenGL/OpenGLShader.h"
 
 #include <fstream>
 #include <glad/glad.h>
@@ -15,7 +16,7 @@ namespace Sloth {
 		if (type == "fragment" || type == "pixel")
 			return GL_FRAGMENT_SHADER;
 
-		SLTH_CORE_ASSERT(false, "Unkown shader type!");
+		SLTH_CORE_ASSERT(false, "Unknown shader type!");
 		return 0;
 	}
 
@@ -58,7 +59,7 @@ namespace Sloth {
 		SLTH_PROFILE_FUNCTION();
 
 		std::string result;
-		std::ifstream in(filepath, std::ios::in | std::ios::binary);
+		std::ifstream in(filepath, std::ios::in | std::ios::binary); // ifstream closes itself due to RAII
 		if (in)
 		{
 			in.seekg(0, std::ios::end);
@@ -68,7 +69,6 @@ namespace Sloth {
 				result.resize(size);
 				in.seekg(0, std::ios::beg);
 				in.read(&result[0], size);
-				in.close();
 			}
 			else
 			{
@@ -98,7 +98,7 @@ namespace Sloth {
 			SLTH_CORE_ASSERT(eol != std::string::npos, "Syntax error");
 			size_t begin = pos + typeTokenLength + 1; //Start of shader type name (after "#type " keyword)
 			std::string type = source.substr(begin, eol - begin);
-			SLTH_CORE_ASSERT(ShaderTypeFromString(type), "invalid type specified");
+			SLTH_CORE_ASSERT(ShaderTypeFromString(type), "Invalid shader type specified");
 
 			size_t nextLinePos = source.find_first_not_of("\r\n", eol); //Start of shader code after shader type declaration line
 			SLTH_CORE_ASSERT(nextLinePos != std::string::npos, "Syntax error");
@@ -115,7 +115,7 @@ namespace Sloth {
 		SLTH_PROFILE_FUNCTION();
 
 		GLuint program = glCreateProgram();
-		SLTH_CORE_ASSERT(shaderSources.size() <= 2, "Only maximum of 2 shaders supported for now.");
+		SLTH_CORE_ASSERT(shaderSources.size() <= 2, "We only support 2 shaders for now");
 		std::array<GLenum, 2> glShaderIDs;
 		int glShaderIDIndex = 0;
 		for (auto& kv : shaderSources)
@@ -151,6 +151,7 @@ namespace Sloth {
 			glShaderIDs[glShaderIDIndex++] = shader;
 		}
 
+		m_RendererID = program;
 
 		// Link our program
 		glLinkProgram(program);
@@ -171,21 +172,18 @@ namespace Sloth {
 			glDeleteProgram(program);
 
 			for (auto id : glShaderIDs)
-			{
-				glDetachShader(program, id);
 				glDeleteShader(id);
-			}
 
 			SLTH_CORE_ERROR("{0}", infoLog.data());
 			SLTH_CORE_ASSERT(false, "Shader link failure!");
-
 			return;
 		}
 
 		for (auto id : glShaderIDs)
+		{
+			glDetachShader(program, id);
 			glDeleteShader(id);
-
-		m_RendererID = program;
+		}
 	}
 
 	void OpenGLShader::Bind() const

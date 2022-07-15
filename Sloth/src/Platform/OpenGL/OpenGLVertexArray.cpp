@@ -1,5 +1,5 @@
 #include "slthpch.h"
-#include "OpenGLVertexArray.h"
+#include "Platform/OpenGL/OpenGLVertexArray.h"
 
 #include <glad/glad.h>
 
@@ -20,8 +20,8 @@ namespace Sloth {
 		case ShaderDataType::Int3:     return GL_INT;
 		case ShaderDataType::Int4:     return GL_INT;
 		case ShaderDataType::Bool:     return GL_BOOL;
-
 		}
+
 		SLTH_CORE_ASSERT(false, "Unknown ShaderDataType!");
 		return 0;
 	}
@@ -58,12 +58,11 @@ namespace Sloth {
 	{
 		SLTH_PROFILE_FUNCTION();
 
-		SLTH_CORE_ASSERT(vertexBuffer->GetLayout().GetElements.size(), "Vertex buffer has no layout!");
+		SLTH_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().size(), "Vertex Buffer has no layout!");
 
 		glBindVertexArray(m_RendererID);
 		vertexBuffer->Bind();
 
-		uint32_t index = 0;
 		const auto& layout = vertexBuffer->GetLayout();
 		for (const auto& element : layout)
 		{
@@ -101,7 +100,7 @@ namespace Sloth {
 						ShaderDataTypeToOpenGLBaseType(element.Type),
 						element.Normalized ? GL_TRUE : GL_FALSE,
 						layout.GetStride(),
-						(const void*)(sizeof(float) * count * i));
+						(const void*)(element.Offset + sizeof(float) * count * i));
 					glVertexAttribDivisor(m_VertexBufferIndex, 1);
 					m_VertexBufferIndex++;
 				}
@@ -111,6 +110,7 @@ namespace Sloth {
 				SLTH_CORE_ASSERT(false, "Unknown ShaderDataType!");
 			}
 		}
+
 		m_VertexBuffers.push_back(vertexBuffer);
 	}
 

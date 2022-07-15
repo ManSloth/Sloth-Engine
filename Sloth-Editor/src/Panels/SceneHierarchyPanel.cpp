@@ -6,6 +6,14 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "Sloth/Scene/Components.h"
+#include <cstring>
+
+/* The Microsoft C++ compiler is non-compliant with the C++ standard and needs
+ * the following definition to disable a security warning on std::strncpy().
+ */
+#ifdef _MSVC_LANG
+#define _CRT_SECURE_NO_WARNINGS
+#endif
 
 namespace Sloth {
 
@@ -36,15 +44,15 @@ namespace Sloth {
 		// Right-click on blank space
 		if (ImGui::BeginPopupContextWindow(0, 1, false))
 		{
-			if (ImGui::MenuItem("Create Empty Game Object"))
-				m_Context->CreateEntity("Empty GameObject");
+			if (ImGui::MenuItem("Create Empty Entity"))
+				m_Context->CreateEntity("Empty Entity");
 
 			ImGui::EndPopup();
 		}
 
 		ImGui::End();
 
-		ImGui::Begin("Inspector");
+		ImGui::Begin("Properties");
 		if (m_SelectionContext)
 		{
 			DrawComponents(m_SelectionContext);
@@ -68,7 +76,7 @@ namespace Sloth {
 		bool entityDeleted = false;
 		if (ImGui::BeginPopupContextItem())
 		{
-			if (ImGui::MenuItem("Delete Game Object"))
+			if (ImGui::MenuItem("Delete Entity"))
 				entityDeleted = true;
 
 			ImGui::EndPopup();
@@ -206,7 +214,7 @@ namespace Sloth {
 
 			char buffer[256];
 			memset(buffer, 0, sizeof(buffer));
-			strcpy_s(buffer, sizeof(buffer), tag.c_str());
+			std::strncpy(buffer, tag.c_str(), sizeof(buffer));
 			if (ImGui::InputText("##Tag", buffer, sizeof(buffer)))
 			{
 				tag = std::string(buffer);

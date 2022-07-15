@@ -12,7 +12,6 @@ namespace Sloth {
 
 	Scene::Scene()
 	{
-
 	}
 
 	Scene::~Scene()
@@ -24,7 +23,7 @@ namespace Sloth {
 		Entity entity = { m_Registry.create(), this };
 		entity.AddComponent<TransformComponent>();
 		auto& tag = entity.AddComponent<TagComponent>();
-		tag.Tag = name.empty() ? "Game Object" : name;
+		tag.Tag = name.empty() ? "Entity" : name;
 		return entity;
 	}
 
@@ -33,26 +32,25 @@ namespace Sloth {
 		m_Registry.destroy(entity);
 	}
 
-
 	void Scene::OnUpdateRuntime(Timestep ts)
 	{
 		// Update scripts
 		{
 			m_Registry.view<NativeScriptComponent>().each([=](auto entity, auto& nsc)
 				{
+					// TODO: Move to Scene::OnScenePlay
 					if (!nsc.Instance)
 					{
 						nsc.Instance = nsc.InstantiateScript();
 						nsc.Instance->m_Entity = Entity{ entity, this };
-
 						nsc.Instance->OnCreate();
 					}
 
 					nsc.Instance->OnUpdate(ts);
 				});
 		}
-		
-		// Render Sprites
+
+		// Render 2D
 		Camera* mainCamera = nullptr;
 		glm::mat4 cameraTransform;
 		{
@@ -85,7 +83,6 @@ namespace Sloth {
 			Renderer2D::EndScene();
 		}
 
-
 	}
 
 	void Scene::OnUpdateEditor(Timestep ts, EditorCamera& camera)
@@ -108,7 +105,7 @@ namespace Sloth {
 		m_ViewportWidth = width;
 		m_ViewportHeight = height;
 
-		// Resize non-fixed aspect camera
+		// Resize our non-FixedAspectRatio cameras
 		auto view = m_Registry.view<CameraComponent>();
 		for (auto entity : view)
 		{
@@ -116,6 +113,7 @@ namespace Sloth {
 			if (!cameraComponent.FixedAspectRatio)
 				cameraComponent.Camera.SetViewportSize(width, height);
 		}
+
 	}
 
 	Entity Scene::GetPrimaryCameraEntity()
@@ -162,4 +160,6 @@ namespace Sloth {
 	{
 	}
 
+
 }
+

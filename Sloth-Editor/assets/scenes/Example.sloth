@@ -29,7 +29,7 @@ Entities:
       Color: [1, 0, 0, 0.423529416]
   - Entity: 12837192831273
     TagComponent:
-      Tag: Blue Square
+      Tag: A Square
     TransformComponent:
       Translation: [-0.200000003, 0, -4.9000001]
       Rotation: [0, 0, 0]

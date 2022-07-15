@@ -13,6 +13,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Sloth/Core/Base.h"
+
 #include "Sloth/Core/Log.h"
 
 #include "Sloth/Debug/Instrumentor.h"
