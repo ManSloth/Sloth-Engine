@@ -2,6 +2,8 @@
 
 #include <filesystem>
 
+#include "Sloth/Renderer/Texture.h"
+
 namespace Sloth {
 
 	class ContentBrowserPanel
@@ -12,6 +14,9 @@ namespace Sloth {
 		void OnImGuiRender();
 	private:
 		std::filesystem::path m_CurrentDirectory;
+
+		Ref<Texture2D> m_DirectoryIcon;
+		Ref<Texture2D> m_FileIcon;
 	};
 
 }
