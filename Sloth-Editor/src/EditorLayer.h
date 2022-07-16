@@ -2,6 +2,7 @@
 
 #include "Sloth.h"
 #include "Panels/SceneHierarchyPanel.h"
+#include "Panels/ContentBrowserPanel.h"
 
 #include "Sloth/Renderer/EditorCamera.h"
 
@@ -63,6 +64,7 @@ namespace Sloth {
 
 		// Panels
 		SceneHierarchyPanel m_SceneHierarchyPanel;
+		ContentBrowserPanel m_ContentBrowserPanel;
 	};
 
 }
