@@ -13,22 +13,26 @@ namespace Sloth {
 	{
 		m_DirectoryIcon = Texture2D::Create("Resources/Icons/ContentBrowser/DirectoryIcon.png");
 		m_FileIcon = Texture2D::Create("Resources/Icons/ContentBrowser/FileIcon.png");
+		m_BackButton = Texture2D::Create("Resources/Icons/ContentBrowser/BackButtonSmall.png");
 	}
 
 	void ContentBrowserPanel::OnImGuiRender()
 	{
 		ImGui::Begin("Assets");
 
+		static float backSize = 20.0f;
+
 		if (m_CurrentDirectory != std::filesystem::path(s_AssetPath))
 		{
-			if (ImGui::Button("<-"))
+
+			if (ImGui::ImageButton((ImTextureID)m_BackButton->GetRendererID(), { backSize, backSize }, { 0, 1 }, { 1, 0 }))
 			{
 				m_CurrentDirectory = m_CurrentDirectory.parent_path();
 			}
 		}
 
 		static float padding = 16.0f;
-		static float thumbnailSize = 128.0f;
+		static float thumbnailSize = 80.0f;
 		float cellSize = thumbnailSize + padding;
 
 		float panelWidth = ImGui::GetContentRegionAvail().x;
