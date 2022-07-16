@@ -87,6 +87,9 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLUniformBuffer.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
@@ -124,6 +127,9 @@
       <Filter>src\Sloth\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Core\MouseCodes.h">
+      <Filter>src\Sloth\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Core\Timer.h">
       <Filter>src\Sloth\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Core\Timestep.h">
@@ -193,6 +199,9 @@
       <Filter>src\Sloth\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Renderer\Texture.h">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sloth\Renderer\UniformBuffer.h">
       <Filter>src\Sloth\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Sloth\Renderer\VertexArray.h">
@@ -1493,6 +1502,9 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLUniformBuffer.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
@@ -1563,6 +1575,9 @@
       <Filter>src\Sloth\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Sloth\Renderer\Texture.cpp">
+      <Filter>src\Sloth\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sloth\Renderer\UniformBuffer.cpp">
       <Filter>src\Sloth\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Sloth\Renderer\VertexArray.cpp">

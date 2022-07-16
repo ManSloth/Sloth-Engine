@@ -11,10 +11,9 @@ namespace Sloth {
 	class SlothEditor : public Application
 	{
 	public:
-		SlothEditor()
-			: Application("Sloth Editor - [Untitled]* ")
+		SlothEditor(ApplicationCommandLineArgs args)
+			: Application("Sloth-Editor", args)
 		{
-			//PushLayer(new ExampleLayer());
 			PushLayer(new EditorLayer());
 		}
 
@@ -25,9 +24,9 @@ namespace Sloth {
 
 	};
 
-	Application* CreateApplication()
+	Application* CreateApplication(ApplicationCommandLineArgs args)
 	{
-		return new SlothEditor();
+		return new SlothEditor(args);
 
 	}
 }

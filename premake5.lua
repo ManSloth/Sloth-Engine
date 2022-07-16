@@ -1,3 +1,5 @@
+include "Dependencies.lua"
+
 workspace "Sloth"
 	architecture "x86_64"
 	startproject "Sloth-Editor"
@@ -16,17 +18,6 @@ workspace "Sloth"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
--- Include directories relative to root folder (solution directory)
-IncludeDir = {}
-IncludeDir["GLFW"] = "Sloth/vendor/GLFW/include"
-IncludeDir["Glad"] = "Sloth/vendor/Glad/include"
-IncludeDir["ImGui"] = "Sloth/vendor/imgui"
-IncludeDir["glm"] = "Sloth/vendor/glm"
-IncludeDir["stb_image"] = "Sloth/vendor/stb_image"
-IncludeDir["entt"] = "Sloth/vendor/entt/include"
-IncludeDir["yaml_cpp"] = "%{wks.location}/Sloth/vendor/yaml-cpp/include"
-IncludeDir["ImGuizmo"] = "%{wks.location}/Sloth/vendor/ImGuizmo"
-
 group "Dependencies"
 
 	include "Sloth/vendor/GLFW"
@@ -41,7 +32,7 @@ project "Sloth"
 	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
-	staticruntime "on"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -79,7 +70,8 @@ project "Sloth"
 		"%{IncludeDir.stb_image}",
 		"%{IncludeDir.entt}",
 		"%{IncludeDir.yaml_cpp}",
-		"%{IncludeDir.ImGuizmo}"
+		"%{IncludeDir.ImGuizmo}",
+		"%{IncludeDir.VulkanSDK}"
 	}
 
 	links
@@ -112,15 +104,36 @@ project "Sloth"
 			buildoptions "/MDd"
 			symbols "on"
 
+			links
+			{
+				"%{Library.ShaderC_Debug}",
+				"%{Library.SPIRV_Cross_Debug}",
+				"%{Library.SPIRV_Cross_GLSL_Debug}"
+			}
+
 		filter "configurations:Release"
 			defines "SLTH_Release"
 			buildoptions "/MD"
 			optimize "on"
 
+			links
+			{
+				"%{Library.ShaderC_Release}",
+				"%{Library.SPIRV_Cross_Release}",
+				"%{Library.SPIRV_Cross_GLSL_Release}"
+			}
+
 		filter "configurations:Dist"
 			defines "SLTH_DIST"
 			buildoptions "/MD"
 			optimize "on"
+
+				links
+			{
+				"%{Library.ShaderC_Release}",
+				"%{Library.SPIRV_Cross_Release}",
+				"%{Library.SPIRV_Cross_GLSL_Release}"
+			}
 
 project "Sandbox"
 	location "Sandbox"
@@ -180,7 +193,7 @@ project "Sloth-Editor"
 	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++17"
-	staticruntime "on"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -207,7 +220,6 @@ project "Sloth-Editor"
 	}
 
 	filter "system:windows"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
