@@ -6,6 +6,7 @@
 #include "Sloth/Core/MouseCodes.h"
 
 #include <glfw/glfw3.h>
+#include <glm/gtc/matrix_transform.hpp>
 
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/quaternion.hpp>
@@ -63,6 +64,7 @@ namespace Sloth {
 	void EditorCamera::OnUpdate(Timestep ts, bool editor2D)
 	{
 		m_editor2D = editor2D;
+		
 		if (Input::IsKeyPressed(Key::LeftAlt))
 		{
 			const glm::vec2& mouse{ Input::GetMouseX(), Input::GetMouseY() };
