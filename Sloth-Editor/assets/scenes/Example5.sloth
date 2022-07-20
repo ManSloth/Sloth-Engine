@@ -2,42 +2,24 @@ Scene: Untitled
 Entities:
   - Entity: 12837192831273
     TagComponent:
-      Tag: Blue Square
+      Tag: Top
     TransformComponent:
-      Translation: [6.22956181, 4.58899355, -0.101903319]
-      Rotation: [-0.776671469, 0, 0.785398245]
-      Scale: [4, 3.99998999, 1]
+      Translation: [0, 0.5, 0]
+      Rotation: [1.57079637, 0.785398185, 0]
+      Scale: [1, 1, 1]
     SpriteRendererComponent:
-      Color: [0, 0.708397269, 0.833976865, 1]
-  - Entity: 12837192831273
-    TagComponent:
-      Tag: Yellow Square
-    TransformComponent:
-      Translation: [-2.68239641, 2.15659118, 7.30000019]
-      Rotation: [0, 0, 0.370009691]
-      Scale: [3.20000005, 1, 1]
-    SpriteRendererComponent:
-      Color: [0.774572194, 0.849420846, 0.00655924482, 1]
-  - Entity: 12837192831273
-    TagComponent:
-      Tag: Red Square
-    TransformComponent:
-      Translation: [-0.910722673, -2.97363567, 0]
-      Rotation: [-1.02772808, -0.57028985, -2.76147676]
-      Scale: [4.82000637, 4.82000208, 8.4745121]
-    SpriteRendererComponent:
-      Color: [0.583011627, 0, 0, 1]
+      Color: [0.876447856, 0, 0, 1]
   - Entity: 12837192831273
     TagComponent:
       Tag: Camera
     TransformComponent:
-      Translation: [0, 0, 22.2999992]
-      Rotation: [0, 0, 0]
+      Translation: [0, 1.70000005, 4]
+      Rotation: [-0.404916406, 0, 0]
       Scale: [1, 1, 1]
     CameraComponent:
       Camera:
         ProjectionType: 0
-        PerspectiveFOV: 0.785398185
+        PerspectiveFOV: 0.52359879
         PerspectiveNear: 0.00999999978
         PerspectiveFar: 1000
         OrthographicSize: 10
@@ -45,3 +27,21 @@ Entities:
         OrthographicFar: 1
       Primary: true
       FixedAspectRatio: false
+  - Entity: 12837192831273
+    TagComponent:
+      Tag: Right
+    TransformComponent:
+      Translation: [0.351999998, 0, 0.349999994]
+      Rotation: [0, 0.785398185, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [0.586872578, 0, 0, 1]
+  - Entity: 12837192831273
+    TagComponent:
+      Tag: Left
+    TransformComponent:
+      Translation: [-0.354999989, 0, 0.349999994]
+      Rotation: [0, -0.785398185, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 0, 0, 1]

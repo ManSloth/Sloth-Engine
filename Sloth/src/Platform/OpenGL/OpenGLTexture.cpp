@@ -29,7 +29,7 @@ namespace Sloth {
 		SLTH_PROFILE_FUNCTION();
 
 		int width, height, channels;
-		stbi_set_flip_vertically_on_load(1);
+		stbi_set_flip_vertically_on_load(true);
 		stbi_uc* data = nullptr;
 		{
 			SLTH_PROFILE_SCOPE("stbi_load - OpenGLTexture2D::OpenGLTexture2D(const std::string&)");
