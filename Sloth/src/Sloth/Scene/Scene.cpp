@@ -23,7 +23,7 @@ namespace Sloth {
 		Entity entity = { m_Registry.create(), this };
 		entity.AddComponent<TransformComponent>();
 		auto& tag = entity.AddComponent<TagComponent>();
-		tag.Tag = name.empty() ? "Entity" : name;
+		tag.Tag = name.empty() ? "Game Object" : name;
 		return entity;
 	}
 

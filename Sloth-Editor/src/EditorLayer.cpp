@@ -1,12 +1,12 @@
 #include "EditorLayer.h"
 #include "imgui/imgui.h"
 
-#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/matrix_transform.hpp>6
 #include <glm/gtc/type_ptr.hpp>
 
 #include "Sloth/Scene/SceneSerializer.h"
-
 #include "Sloth/Utils/PlatformUtils.h"
+#include "Sloth/Core/Input.h"
 
 #include "ImGuizmo.h"
 
@@ -268,13 +268,52 @@ namespace Sloth {
 		std::string name = "None";
 		if (m_HoveredEntity)
 			name = m_HoveredEntity.GetComponent<TagComponent>().Tag;
+
+		auto [mx, my] = ImGui::GetMousePos();
+		mx -= m_ViewportBounds[0].x;
+		my -= m_ViewportBounds[0].y;
+		glm::vec2 viewportSize = m_ViewportBounds[1] - m_ViewportBounds[0];
+		my = viewportSize.y - my;
+		int mouseX = (int)mx;
+		int mouseY = (int)my;
+		glm::vec2 mouse = glm::vec2(mouseX, mouseY);
+
+		glm::mat4 proj = glm::inverse(m_EditorCamera.GetProjection());
+		glm::mat4 view = glm::inverse(m_EditorCamera.GetViewMatrix());
+		glm::mat4 viewProj = view * proj;
+
+		float currentX = (mouse.x / viewportSize.x) * 2.0f - 1.0f;
+		glm::vec4 tmp = glm::vec4(currentX, 0, 0, 1);
+		tmp = tmp * viewProj;
+		currentX = tmp.x;
+
+		float currentY = (mouse.y / viewportSize.y) * 2.0f - 1.0f;
+		tmp = glm::vec4(0, currentY, 0, 1);
+		tmp = tmp * viewProj;
+		currentY = tmp.y;
+
+		glm::vec3 worldMouse = glm::vec3(currentX + m_EditorCamera.GetPosition().x, currentY + m_EditorCamera.GetPosition().y, m_EditorCamera.GetPosition().z);
+		glm::vec3 mouseDir = glm::normalize(glm::vec3(currentX, currentY, m_EditorCamera.GetPosition().z));
+		glm::vec3 rayDelta = mouseDir * 100.0f;
+		glm::vec3 planeDelta = glm::vec3(0.0f, 0.0f, 0.0f) - worldMouse;
+		glm::vec3 planeNorm = glm::vec3(0.0f, 0.0f, 1.0f);
+
+		float wp = glm::dot(planeDelta, planeNorm);
+		float vp = glm::dot(rayDelta, planeNorm);
+		float k = wp / vp;
+
+		glm::vec3 planePos = worldMouse + (rayDelta * k);
+		ImGui::Text("Mouse Position: %.0f:%.0f", mouse.x, mouse.y);
+		ImGui::Text("Mouse World: %.2f:%.2f", currentX + m_EditorCamera.GetPosition().x, currentY + m_EditorCamera.GetPosition().y);
+		ImGui::Text("mouseDir: %.4f:%.4f", mouseDir.x, mouseDir.y);
+		ImGui::Text("rayDelta: %.2f,%.2f,%.2f", rayDelta.x * m_EditorCamera.GetPosition().z, rayDelta.y * m_EditorCamera.GetPosition().z, rayDelta.z);
+		ImGui::Text("planeDelta: %.2f,%.2f,%.2f", planeDelta.x, planeDelta.y, planeDelta.z);
+		ImGui::Text("wp, vp, k: %.2f,%.2f,%.4f", wp, vp, k);
 		ImGui::Text("Hovered Object: %s", name.c_str());
 		ImGui::Text("Viewport Hovered: %d", m_ViewportHovered);
 		ImGui::Text("Viewport Focused: %d", m_ViewportFocused);
-		ImGui::Text("Mouse Down: %d", m_LeftMouseDown);
-		ImGui::Text("Can Click Gizmo: %d", m_CanClickGizmo);
-		ImGui::Text("Gizmo: %d", ImGuizmo::IsOver());
 
+		ImGui::Text("");
 		auto stats = Renderer2D::GetStats();
 		ImGui::Text("Renderer2D Stats:");
 		ImGui::Text("Draw Calls: %d", stats.DrawCalls);
@@ -327,12 +366,23 @@ namespace Sloth {
 		uint32_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
 		ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
 
+
 		if (ImGui::BeginDragDropTarget())
 		{
+			//ImGui::SetMouseCursor(ImGuiMouseCursor_None);
+			//Ref<Texture2D> cursorImage = Texture2D::Create("Resources/Icons/Toolbar/PlayButton.png");
+			//glm::vec3 imagePos = MouseToZPlane();
+			
+
 			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
 			{
 				const wchar_t* path = (const wchar_t*)payload->Data;
-				OpenScene(std::filesystem::path(g_AssetPath) / path);
+
+				if ((std::filesystem::path(g_AssetPath) / path).extension().string() == ".sloth")
+					OpenScene(std::filesystem::path(g_AssetPath) / path);
+				else if ((std::filesystem::path(g_AssetPath) / path).extension().string() == ".png")
+					PlaceSpriteObject(std::filesystem::path(g_AssetPath) / path);
+
 			}
 			ImGui::EndDragDropTarget();
 		}
@@ -591,4 +641,63 @@ namespace Sloth {
 
 	}
 
+	Entity EditorLayer::PlaceSpriteObject(const std::filesystem::path& path)
+	{
+		std::string filename = path.filename().string();
+		filename.erase(filename.length() - 4);
+		auto gameObject = m_ActiveScene->CreateEntity(filename);
+		
+
+		glm::vec3 objectPos = MouseToZPlane();
+
+		gameObject.GetComponent<TransformComponent>().Translation = glm::vec4{ objectPos.x, objectPos.y, 0.0f, 1.0f };
+		gameObject.AddComponent<SpriteRendererComponent>(glm::vec4{ 1.0f, 1.0f, 1.0f, 1.0f });
+		gameObject.GetComponent<SpriteRendererComponent>().Texture = Texture2D::Create(path.string());
+
+		Ref<Texture2D> tex = gameObject.GetComponent<SpriteRendererComponent>().Texture;
+		//float ratio = tex.
+
+		return gameObject;
+	}
+
+	glm::vec3 EditorLayer::MouseToZPlane()
+	{
+		auto [mx, my] = ImGui::GetMousePos();
+		mx -= m_ViewportBounds[0].x;
+		my -= m_ViewportBounds[0].y;
+		glm::vec2 viewportSize = m_ViewportBounds[1] - m_ViewportBounds[0];
+		my = viewportSize.y - my;
+		int mouseX = (int)mx;
+		int mouseY = (int)my;
+		glm::vec2 mouse = glm::vec2(mouseX, mouseY);
+
+		glm::mat4 proj = glm::inverse(m_EditorCamera.GetProjection());
+		glm::mat4 view = glm::inverse(m_EditorCamera.GetViewMatrix());
+		glm::mat4 viewProj = view * proj;
+
+		float currentX = (mouse.x / viewportSize.x) * 2.0f - 1.0f;
+		glm::vec4 tmp = glm::vec4(currentX, 0, 0, 1);
+		tmp = tmp * viewProj;
+		currentX = tmp.x;
+
+		float currentY = (mouse.y / viewportSize.y) * 2.0f - 1.0f;
+		tmp = glm::vec4(0, currentY, 0, 1);
+		tmp = tmp * viewProj;
+		currentY = tmp.y;
+
+		glm::vec3 worldMouse = glm::vec3(currentX + m_EditorCamera.GetPosition().x, currentY + m_EditorCamera.GetPosition().y, m_EditorCamera.GetPosition().z);
+		glm::vec3 mouseDir = glm::normalize(glm::vec3(currentX * (m_EditorCamera.GetPosition().z + 1), currentY * (m_EditorCamera.GetPosition().z + 1), m_EditorCamera.GetPosition().z));
+		glm::vec3 rayDelta = mouseDir * 100.0f;
+		glm::vec3 planeDelta = glm::vec3(0.0f, 0.0f, 0.0f) - worldMouse;
+		glm::vec3 planeNorm = glm::vec3(0.0f, 0.0f, 1.0f);
+
+		float wp = glm::dot(planeDelta, planeNorm);
+		float vp = glm::dot(rayDelta, planeNorm);
+		float k = wp / vp;
+
+		glm::vec3 planePos = worldMouse + (rayDelta * k);
+
+		return glm::vec3(-planePos.x + m_EditorCamera.GetPosition().x * 2.0f, -planePos.y + m_EditorCamera.GetPosition().y * 2.0f, 0.0f);
+
+	}
 }

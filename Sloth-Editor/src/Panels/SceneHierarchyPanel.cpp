@@ -48,8 +48,8 @@ namespace Sloth {
 		// Right-click on blank space
 		if (ImGui::BeginPopupContextWindow(0, 1, false))
 		{
-			if (ImGui::MenuItem("Create Empty Entity"))
-				m_Context->CreateEntity("Empty Entity");
+			if (ImGui::MenuItem("Create Empty Game Object"))
+				m_Context->CreateEntity("Empty Game Object");
 
 			ImGui::EndPopup();
 		}

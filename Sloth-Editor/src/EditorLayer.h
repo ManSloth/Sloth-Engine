@@ -33,6 +33,9 @@ namespace Sloth {
 		void OnScenePlay();
 		void OnSceneStop();
 
+		Entity PlaceSpriteObject(const std::filesystem::path& path);
+		glm::vec3 MouseToZPlane();
+
 		// UI Panels
 		void UI_Toolbar();
 	private:
@@ -47,6 +50,7 @@ namespace Sloth {
 		Entity m_SquareEntity;
 		Entity m_CameraEntity;
 		Entity m_SecondCamera;
+		glm::vec2 m_MousePos = { 0,0 };
 
 		Entity m_HoveredEntity;
 
