@@ -178,6 +178,7 @@
     <ClInclude Include="src\Sloth\Core\MouseCodes.h" />
     <ClInclude Include="src\Sloth\Core\Timer.h" />
     <ClInclude Include="src\Sloth\Core\Timestep.h" />
+    <ClInclude Include="src\Sloth\Core\UUID.h" />
     <ClInclude Include="src\Sloth\Core\Window.h" />
     <ClInclude Include="src\Sloth\Debug\Instrumentor.h" />
     <ClInclude Include="src\Sloth\Events\ApplicationEvent.h" />
@@ -643,6 +644,7 @@
     <ClCompile Include="src\Sloth\Core\Layer.cpp" />
     <ClCompile Include="src\Sloth\Core\LayerStack.cpp" />
     <ClCompile Include="src\Sloth\Core\Log.cpp" />
+    <ClCompile Include="src\Sloth\Core\UUID.cpp" />
     <ClCompile Include="src\Sloth\Core\Window.cpp" />
     <ClCompile Include="src\Sloth\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Sloth\ImGui\ImGuiLayer.cpp" />

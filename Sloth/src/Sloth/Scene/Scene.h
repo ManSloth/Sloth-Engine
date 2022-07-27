@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Sloth/Core/Timestep.h"
+#include "Sloth/Core/UUID.h"
 #include "Sloth/Renderer/EditorCamera.h"
 
 #include "entt.hpp"
@@ -18,6 +19,7 @@ namespace Sloth {
 		~Scene();
 
 		Entity CreateEntity(const std::string& name = std::string());
+		Entity CreateEntityWithUUID(UUID uuid, const std::string& name = std::string());
 		void DestroyEntity(Entity entity);
 
 		void OnRuntimeStart();
