@@ -1,23 +1,14 @@
 Scene: Untitled
 Entities:
-  - Entity: 14551255806603272621
+  - Entity: 17645788959857765725
     TagComponent:
-      Tag: Green Block
+      Tag: 13
     TransformComponent:
-      Translation: [0.800000012, -1.20000005, 0]
+      Translation: [-2.70453429, -0.766284525, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     SpriteRendererComponent:
-      Color: [0.138578713, 0.6409266, 0, 1]
-  - Entity: 4507889863722834813
-    TagComponent:
-      Tag: Red Block
-    TransformComponent:
-      Translation: [1.79999995, 0, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    SpriteRendererComponent:
-      Color: [0.745173752, 0, 0, 1]
+      Color: [1, 1, 1, 1]
   - Entity: 18347650197480222167
     TagComponent:
       Tag: White Block
@@ -27,3 +18,21 @@ Entities:
       Scale: [1, 1, 1]
     SpriteRendererComponent:
       Color: [1, 1, 1, 1]
+  - Entity: 4507889863722834813
+    TagComponent:
+      Tag: Red Block
+    TransformComponent:
+      Translation: [1.79999995, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [0.745173752, 0, 0, 1]
+  - Entity: 14551255806603272621
+    TagComponent:
+      Tag: Green Block
+    TransformComponent:
+      Translation: [0.800000012, -1.20000005, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [0.138578713, 0.6409266, 0, 1]
