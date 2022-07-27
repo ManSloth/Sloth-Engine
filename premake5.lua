@@ -20,6 +20,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 group "Dependencies"
 
+	include "Sloth/vendor/Box2D"
 	include "Sloth/vendor/GLFW"
 	include "Sloth/vendor/Glad"
 	include "Sloth/vendor/imgui"
@@ -63,6 +64,7 @@ project "Sloth"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.Box2D}",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
@@ -76,6 +78,7 @@ project "Sloth"
 
 	links
 	{
+		"Box2D",
 		"GLFW",
 		"Glad",
 		"ImGui",

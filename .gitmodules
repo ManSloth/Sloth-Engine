@@ -16,3 +16,6 @@
 [submodule "Sloth/vendor/ImGuizmo"]
 	path = Sloth/vendor/ImGuizmo
 	url = https://github.com/thecherno/imguizmo
+[submodule "Sloth/vendor/Box2D"]
+	path = Sloth/vendor/Box2D
+	url = https://github.com/thecherno/box2d
