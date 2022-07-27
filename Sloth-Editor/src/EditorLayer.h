@@ -25,6 +25,8 @@ namespace Sloth {
 		bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
 		bool OnMouseButtonReleased(MouseButtonReleasedEvent& e);
 
+		void OnOverlayRender();
+
 		void NewScene();
 		void OpenScene();
 		void OpenScene(const std::filesystem::path& path);
@@ -75,7 +77,9 @@ namespace Sloth {
 
 		int m_GizmoType = -1;
 
-		bool m_editor2D = false;
+		bool m_ShowPhysicsColliders = false;
+
+		bool m_editor2D = true;
 		bool m_LeftMouseDown = false;
 		bool m_CanClickGizmo = false;
 
@@ -90,7 +94,7 @@ namespace Sloth {
 		ContentBrowserPanel m_ContentBrowserPanel;
 
 		// Editor resources
-		Ref<Texture2D> m_IconPlay, m_IconStop, m_Button2D, m_Button2DOff;
+		Ref<Texture2D> m_IconPlay, m_IconStop, m_Button2D, m_Button2DOff, m_GreenBox, m_GreyBox;
 	};
 
 }

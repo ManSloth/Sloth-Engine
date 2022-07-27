@@ -157,7 +157,7 @@ namespace Sloth {
 
 				b2CircleShape circleShape;
 				circleShape.m_p.Set(cc2d.Offset.x, cc2d.Offset.y);
-				circleShape.m_radius = cc2d.Radius;
+				circleShape.m_radius = transform.Scale.x * cc2d.Radius;
 
 				b2FixtureDef fixtureDef;
 				fixtureDef.shape = &circleShape;
@@ -245,8 +245,8 @@ namespace Sloth {
 				{
 					auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
 
-					//Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
-					Renderer2D::DrawRect(transform.GetTransform(), glm::vec4(1.0f), (int)entity);
+					Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
+					//Renderer2D::DrawRect(transform.GetTransform(), glm::vec4(1.0f), (int)entity);
 				}
 			}
 
@@ -277,8 +277,8 @@ namespace Sloth {
 			{
 				auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
 
-				//Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
-				Renderer2D::DrawRect(transform.GetTransform(), glm::vec4(1.0f), (int)entity);
+				Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
+				//Renderer2D::DrawRect(transform.GetTransform(), glm::vec4(1.0f), (int)entity);
 			}
 		}
 
