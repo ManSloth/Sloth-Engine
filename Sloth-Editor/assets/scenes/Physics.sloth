@@ -1,61 +1,23 @@
 Scene: Untitled
 Entities:
-  - Entity: 13511524262971918467
+  - Entity: 7784734766206350904
     TagComponent:
-      Tag: Blue Block
-    TransformComponent:
-      Translation: [1.79999995, 0, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    SpriteRendererComponent:
-      Color: [0, 0.58117795, 0.745173752, 1]
-    Rigidbody2DComponent:
-      BodyType: Dynamic
-      FixedRotation: false
-    BoxCollider2DComponent:
-      Offset: [0, 0]
-      Size: [0.5, 0.5]
-      Density: 1
-      Friction: 0.5
-      Restitution: 0
-      RestitutionThreshold: 0.5
-  - Entity: 17645788959857765725
-    TagComponent:
-      Tag: 13
-    TransformComponent:
-      Translation: [-2.70453429, -0.766284525, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    SpriteRendererComponent:
-      Color: [1, 1, 1, 1]
-  - Entity: 18347650197480222167
-    TagComponent:
-      Tag: White Block
+      Tag: Camera
     TransformComponent:
       Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
-    SpriteRendererComponent:
-      Color: [1, 1, 1, 1]
-  - Entity: 4507889863722834813
-    TagComponent:
-      Tag: Red Block
-    TransformComponent:
-      Translation: [2.59308124, 1.85878813, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    SpriteRendererComponent:
-      Color: [0.745173752, 0, 0, 1]
-    Rigidbody2DComponent:
-      BodyType: Dynamic
-      FixedRotation: false
-    BoxCollider2DComponent:
-      Offset: [0, 0]
-      Size: [0.5, 0.5]
-      Density: 1
-      Friction: 0.5
-      Restitution: 0
-      RestitutionThreshold: 0.5
+    CameraComponent:
+      Camera:
+        ProjectionType: 1
+        PerspectiveFOV: 0.785398185
+        PerspectiveNear: 0.00999999978
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+      Primary: true
+      FixedAspectRatio: false
   - Entity: 14551255806603272621
     TagComponent:
       Tag: Green Block
@@ -75,21 +37,62 @@ Entities:
       Friction: 0.5
       Restitution: 0
       RestitutionThreshold: 0.5
-  - Entity: 7784734766206350904
+  - Entity: 4507889863722834813
     TagComponent:
-      Tag: Camera
+      Tag: Red Block
     TransformComponent:
-      Translation: [0, 0, 0]
+      Translation: [2.59308124, 1.85878813, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
-    CameraComponent:
-      Camera:
-        ProjectionType: 1
-        PerspectiveFOV: 0.785398185
-        PerspectiveNear: 0.00999999978
-        PerspectiveFar: 1000
-        OrthographicSize: 10
-        OrthographicNear: -1
-        OrthographicFar: 1
-      Primary: true
-      FixedAspectRatio: false
+    SpriteRendererComponent:
+      Color: [0.745173752, 0, 0, 1]
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 18347650197480222167
+    TagComponent:
+      Tag: Yellow Ring
+    TransformComponent:
+      Translation: [1.15422606, 2.39501286, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CircleRendererComponent:
+      Color: [0.811705351, 0.868725896, 0, 1]
+      Thickness: 0.200000003
+      Fade: 0.063000001
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 13511524262971918467
+    TagComponent:
+      Tag: Blue Block
+    TransformComponent:
+      Translation: [1.79999995, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [0, 0.58117795, 0.745173752, 1]
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
